@@ -8,3 +8,4 @@ wp-content/*
 
 wp-content/plugins/*
 wp-content/themes/*
+!wp-content/themes/salsa-siempre
