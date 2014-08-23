@@ -14,6 +14,7 @@
 <title><?php wp_title( '|', true, 'right' ); ?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700&subset=latin,latin-ext">
 
 <?php wp_head(); ?>
 </head>
@@ -22,16 +23,15 @@
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'salsa-siempre' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</div>
+	<header class="header" role="banner">
+		<div class="header-inner">
+			<img class="header-logo" src="<?php bloginfo('template_directory'); ?>/img/logo.png"/>
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle"><?php _e( 'Primary Menu', 'salsa-siempre' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-		</nav><!-- #site-navigation -->
+			<nav class="main-navigation" role="navigation">
+				<button class="menu-toggle"><?php _e( 'Primary Menu', 'salsa-siempre' ); ?></button>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+			</nav><!-- #site-navigation -->
+		</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
