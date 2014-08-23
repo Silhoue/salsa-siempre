@@ -9,3 +9,7 @@ wp-content/*
 wp-content/plugins/*
 wp-content/themes/*
 !wp-content/themes/salsa-siempre
+
+wp-content/themes/salsa-siempre/node_modules/
+wp-content/themes/salsa-siempre/.DS_Store
+wp-content/themes/salsa-siempre/style.css

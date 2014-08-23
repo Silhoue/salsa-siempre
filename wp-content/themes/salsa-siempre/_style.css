@@ -431,9 +431,9 @@ a:active {
 5.2 Menus
 --------------------------------------------------------------*/
 .main-navigation {
-	clear: both;
+/*	clear: both;*/
 	display: block;
-	float: left;
+/*	float: left;*/
 	width: 100%;
 }
 
@@ -452,6 +452,7 @@ a:active {
 	display: block;
 	text-decoration: none;
 }
+
 
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
