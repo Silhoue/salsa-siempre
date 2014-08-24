@@ -1,0 +1,123 @@
+$footer-font-size: 1.4;
+
+.footer {
+	font-size: 1em * $footer-font-size;
+	color: $grey;
+    background-color: $black-grey;
+    margin-top: 3em / $footer-font-size;
+}
+
+.footer-inner {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 3em / $footer-font-size;
+}
+
+.footer-item {
+	display: inline-block;
+	width: 27em / $footer-font-size;
+	vertical-align: top;
+	margin-bottom: 3em / $footer-font-size;
+	&:nth-child(-n+3) {
+		margin-right: 3em / $footer-font-size;
+	}
+}
+
+.footer-item-title {
+	margin: 0 0 1em;
+	font-size: 1em;
+	font-weight: normal;
+}
+
+.footer-item-content {
+	white-space: pre-line;
+}
+
+.footer-item-media-items {
+	margin: 0;
+	padding: 0;
+}
+
+.footer-item-media-item {
+	list-style: none;
+	display: inline-block;
+	&:not(:last-child) {
+		margin-right: 1em / $footer-font-size;
+	}
+	& a {
+		display: inline-block;
+		width: 5em / $footer-font-size;
+		height: 5em / $footer-font-size;
+		background-image: url("img/media.png");
+		background-size: 15em / $footer-font-size;
+	}
+}
+
+.footer-item-media-item-fb a {
+	background-position: 0 0;
+	&:hover {
+		background-position: 0 -5em / $footer-font-size;
+	};
+}
+
+.footer-item-media-item-gp a {
+	background-position: -5em / $footer-font-size 0;
+	&:hover {
+		background-position: -5em / $footer-font-size -5em / $footer-font-size;
+	};
+}
+
+.footer-item-media-item-yt a {
+	background-position: -10em / $footer-font-size 0;
+	&:hover {
+		background-position: -10em / $footer-font-size -5em / $footer-font-size;
+	};
+}
+
+.footer-newsletter-input {
+	font-size: 1em;
+	width: 20em / $footer-font-size;
+	padding: 0.5em;
+	border: 0;
+	box-sizing: border-box;
+	margin-top: 0.4em;
+}
+
+.footer-newsletter-submit {
+	font-size: 1em;
+	color: #fff;
+	background: $grey;
+	width: 7em / $footer-font-size;
+	padding: 0.5em;
+	border: 0;
+	margin-left: 13em / $footer-font-size;
+	margin-top: 0.2em;
+	box-sizing: border-box;
+}
+
+.footer-item-partners {
+	width: 100%;
+}
+
+.footer-item-partners-items {
+	margin: 0;
+	padding: 0;
+}
+
+.footer-item-partners-item {
+	padding-top: 0.2em / $footer-font-size;
+	border-top: 0.7em / $footer-font-size solid $grey;
+	margin-bottom: 1em / $footer-font-size;
+	list-style: none;
+	display: inline-block;
+	&:not(:nth-child(6n+6)) {
+		margin-right: 3em / $footer-font-size;
+	}
+	&:hover {
+		border-top-color: $yellow;
+	};
+	& img {
+		display: inline-block;
+		width: 17em / $footer-font-size;
+	}
+}

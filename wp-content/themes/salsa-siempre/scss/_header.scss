@@ -1,13 +1,6 @@
 .header {
     background-color: $blue;
     margin-top: 1.5em;
-    font-weight: 200;
-}
-
-.header-logo {
-    float: left;
-    width: 64em * 0.0875;
-    margin-top: -1.05em;
 }
 
 .header-inner {
@@ -20,6 +13,12 @@
         display: block;
         clear: right;
     }
+}
+
+.header-logo {
+    float: left;
+    width: 64em * 0.0875;
+    margin-top: -1.05em;
 }
 
 .menu ul {
