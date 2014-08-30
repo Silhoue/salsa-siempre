@@ -17,11 +17,11 @@ $footer-font-size: 1.4;
 
 .footer-item {
 	$footer-item-width: 27em / $footer-font-size;
-	display: inline-block;
 	width: $footer-item-width;
+	display: inline-block;
 	vertical-align: top;
 	padding: 0 1.5em / $footer-font-size;
-	margin-bottom: 5.5em / $footer-font-size; // ?
+	margin-bottom: 5.5em / $footer-font-size;
 }
 
 .footer-item-title {
@@ -43,11 +43,12 @@ $footer-font-size: 1.4;
 .footer-item-media-item {
 	list-style: none;
 	display: inline-block;
+	vertical-align: top;
 	&:not(:last-child) {
 		margin-right: 1em / $footer-font-size;
 	}
 	& a {
-		display: inline-block;
+		display: block;
 		width: 5em / $footer-font-size;
 		height: 5em / $footer-font-size;
 		background-image: url("img/media.png");
@@ -113,6 +114,7 @@ $footer-font-size: 1.4;
 	margin-bottom: 5.5em / $footer-font-size;
 	list-style: none;
 	display: inline-block;
+	vertical-align: bottom;
 	& img {
 		display: block;
 		padding-top: 0.2em / $footer-font-size;
