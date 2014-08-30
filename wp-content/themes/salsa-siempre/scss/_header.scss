@@ -1,78 +1,80 @@
 .header {
-    background-color: $blue;
-    margin-top: 1.5em;
+	background-color: $blue;
+	margin-top: 2.5em;
+	margin-bottom: 6em;
 }
 
 .header-inner {
-    max-width: 1170px;
-    margin: 0 auto 3em;
-    padding: 0 1.5em 0;
-    font-size: 2em;
-    &:after {
-        content: "";
-        display: block;
-        clear: right;
-    }
+	box-sizing: border-box;
+	max-width: 1230px;
+	margin: 0 auto;
+	padding: 0 1.5em 0;
+	font-size: 2em;
+	&:after {
+		content: "";
+		display: block;
+		clear: right;
+	}
 }
 
 .header-logo {
-    float: left;
-    width: 64em * 0.0875;
-    margin-top: -1.05em;
+	float: left;
+	width: 64em * 0.0875;
+	margin-top: -1.05em;
 }
 
 .menu ul {
-    float: right;
-    margin: 0;
-    padding: 0;
-    & li {
-        display: inline-block;
-        position: relative;
-        &:hover ul {
-            visibility: visible;
-        }
-    }
-    & a {
-        color: #fff;
-        line-height: 1.5em;
-        text-decoration: none;
-        display: inline-block;
-        padding: 0.5em 0.8em;
-    }
+	float: right;
+	margin: 0;
+	padding: 0;
+	& li {
+		display: inline-block;
+		position: relative;
+		&:hover ul {
+			visibility: visible;
+		}
+	}
+	& a {
+		color: #fff;
+		line-height: 1.5em;
+		text-decoration: none;
+		display: inline-block;
+		padding: 0.5em 0.8em;
+	}
 }
 
 .menu ul ul {
-    visibility: hidden;
-    float: none; /* overwriting */
-    position: absolute;
-    background-color: $blue;
-    opacity: 0.65;
-    right: 0;
-    & li {
-        display: block;
-        text-align: right;
-        white-space: nowrap;
-        border-top: 1px solid #fff;
-    }
-    & a {
-        padding-left: 1.2em;
-        display: block;
-    }
+	visibility: hidden;
+	float: none; /* overwriting */
+	position: absolute;
+	background-color: $blue;
+	opacity: 0.65;
+	right: 0;
+	& li {
+		display: block;
+		text-align: right;
+		white-space: nowrap;
+		border-top: 1px solid #fff;
+	}
+	& a {
+		padding-left: 1.2em;
+		display: block;
+	}
 }
 
 .menu > ul > li {
-    & > a:hover,
-    &.current_page_item > a,
-    &.current_page_parent > a {
-        padding-bottom: 0.15em;
-        border-bottom: 0.35em solid $yellow;
-    }
+	& > a:hover,
+	&.current_page_item > a,
+	&.current_page_parent > a {
+		padding-bottom: 0.15em;
+		border-bottom: 0.35em solid $yellow;
+	}
 }
 
 .menu ul ul li {
-    & > a:hover,
-    &.current_page_item > a {
-        padding-left: 0.8em;
-        border-left: 0.4em solid $yellow;
-    }
+	& > a:hover,
+	&.current_page_item > a {
+		padding-left: 0.8em;
+		border-left: 0.4em solid $yellow;
+	}
 }

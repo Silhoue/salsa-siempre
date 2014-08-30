@@ -41,8 +41,8 @@
 						<button type="submit" class="footer-newsletter-submit">Wyślij</button>
 					</span>
 			</section>
-			<section class="footer-item footer-item-partners">
-				<h1 class="footer-item-title">Partnerzy</h1>
+			<section class="footer-item-partners">
+				<h1 class="footer-item-title footer-item-partners-title">Partnerzy</h1>
 				<ul class="footer-item-partners-items">
 					<li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
 					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></a></li

@@ -30,8 +30,8 @@
 			<nav class="main-navigation" role="navigation">
 				<button class="menu-toggle"><?php _e( 'Primary Menu', 'salsa-siempre' ); ?></button>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-			</nav><!-- #site-navigation -->
+			</nav><!-- .main-navigation -->
 		</div>
-	</header><!-- #masthead -->
+	</header><!-- .header -->
 
 	<div id="content" class="site-content">
