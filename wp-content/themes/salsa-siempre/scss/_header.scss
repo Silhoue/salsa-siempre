@@ -1,14 +1,12 @@
 .header {
 	background-color: $blue;
-	margin-top: 2.5em;
-	margin-bottom: 6em;
+	margin-top: 1.5em;
 }
 
 .header-inner {
-	box-sizing: border-box;
-	max-width: 1230px;
-	margin: 0 auto;
-	padding: 0 1.5em 0;
+	max-width: 1170px;
+	margin: 0 auto 3em;
+	padding: 0 1.5em;
 	font-size: 2em;
 	&:after {
 		content: "";

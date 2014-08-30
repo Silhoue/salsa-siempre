@@ -8,7 +8,7 @@
  */
 ?>
 
-	</div><!-- #content -->
+	</div><!-- .content -->
 
 	<footer class="footer" role="contentinfo">
 		<div class="footer-inner">
@@ -45,12 +45,12 @@
 				<h1 class="footer-item-title footer-item-partners-title">Partnerzy</h1>
 				<ul class="footer-item-partners-items">
 					<li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></a></li
 					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></a></li>
+					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
+					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
+					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
+					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
+					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li>
 				</ul>
 			</section>
 		</div>
@@ -58,7 +58,7 @@
 			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'salsa-siempre' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'salsa-siempre' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>
 			<?php printf( __( 'Theme: %1$s by %2$s.', 'salsa-siempre' ), 'Salsa Siempre', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
+		</div> .site-info -->
 	</footer>
 </div><!-- #page -->
 

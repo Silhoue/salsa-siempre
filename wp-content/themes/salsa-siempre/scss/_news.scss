@@ -1,0 +1,36 @@
+.news-item {
+	display: inline-block;
+	vertical-align: top;
+	width: 37em;
+	margin: 0 1.5em 3em;
+}
+
+.news-item a {
+	display: block;
+	text-decoration: none;
+	color: #000;
+}
+
+.news-item img {
+	display: block;
+	height: 24em;
+	width: 37em;
+	border-bottom: $yellow solid 0.3em;
+}
+
+.news-item-title {
+	font-size: 1.4em;
+	font-weight: bold;
+	margin: 0 0 1em;
+}
+
+.news-item-caption {
+	padding: 1em 2em;
+	height: 9em;
+	background-color: $light-grey;
+}
+
+.news-item-detail {
+	font-size: 1.4em;
+	display: block;
+}

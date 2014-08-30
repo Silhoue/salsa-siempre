@@ -1,6 +1,7 @@
 @import "colors.scss";
 @import "header.scss";
 @import "footer.scss";
+@import "news.scss";
 
 body {
 	font-family: "Open Sans", sans-serif;
@@ -10,4 +11,11 @@ body {
 
 .menu-toggle, .screen-reader-text {
 	display: none;
+}
+
+.content {
+	box-sizing: border-box;
+	max-width: 1230px;
+	margin: 0 auto;
+	padding: 0 1.5em;
 }

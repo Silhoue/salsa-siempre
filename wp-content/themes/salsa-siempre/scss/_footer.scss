@@ -4,7 +4,7 @@ $footer-font-size: 1.4;
 	font-size: 1em * $footer-font-size;
 	color: $grey;
 	background-color: $black-grey;
-	margin-top: 5.5em / $footer-font-size;
+	margin-top: 2.5em / $footer-font-size;
 	padding-top: 5.5em / $footer-font-size;
 }
 
@@ -20,8 +20,7 @@ $footer-font-size: 1.4;
 	width: $footer-item-width;
 	display: inline-block;
 	vertical-align: top;
-	padding: 0 1.5em / $footer-font-size;
-	margin-bottom: 5.5em / $footer-font-size;
+	margin: 0 1.5em / $footer-font-size 5.5em / $footer-font-size;
 }
 
 .footer-item-title {
