@@ -69,4 +69,23 @@ if (function_exists("register_field_group"))
 	));
 }
 
+function remove_menus() {
+	remove_menu_page('edit-comments.php');
+	remove_menu_page('themes.php');
+	remove_menu_page('plugins.php');
+	remove_menu_page('tools.php');
+	remove_menu_page('edit.php?post_type=acf');
+	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
+    remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
+    remove_submenu_page('edit.php', 'post-new.php');
+    remove_submenu_page('edit.php', 'edit.php');
+    remove_submenu_page('upload.php', 'upload.php');
+    remove_submenu_page('upload.php', 'media-new.php');
+    remove_submenu_page('edit.php?post_type=page', 'edit.php?post_type=page');
+    remove_submenu_page('edit.php?post_type=page', 'post-new.php?post_type=page');
+    remove_submenu_page('users.php', 'user-new.php');
+}
+
+// add_action( 'admin_menu', 'remove_menus', 999 );
+
 ?>
