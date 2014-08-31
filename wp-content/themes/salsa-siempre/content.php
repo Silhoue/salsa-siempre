@@ -9,7 +9,7 @@
 		<?php if ( get_the_post_thumbnail() ):
 		the_post_thumbnail();
 		else: ?>
-		<img src="<?php bloginfo('template_directory'); ?>/img/placeholder.png"/>
+		<img src="<?php bloginfo('template_directory'); ?>/img/placeholder.png" alt=""/>
 		<?php endif; ?>
 		<div class="news-item-caption">
 			<h2 class="news-item-title"><?php the_title(); ?></h2>
