@@ -1,4 +1,6 @@
-<?php set_post_thumbnail_size(370, 240, true);
+<?php
+add_image_size("news-item-image", 370, 240, true);
+add_image_size("news-image", 470, 305, true);
 
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10);
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10);
@@ -7,7 +9,7 @@ function remove_thumbnail_dimensions( $html ) {
     return $html;
 }
 
-if (function_exists("register_field_group"))
+if(function_exists("register_field_group"))
 {
 	register_field_group(array (
 		'id' => 'acf_news',
@@ -19,7 +21,7 @@ if (function_exists("register_field_group"))
 				'name' => 'data_od',
 				'type' => 'date_picker',
 				'date_format' => 'dd.mm',
-				'display_format' => 'dd.mm.yyyy',
+				'display_format' => 'dd.mm.yy',
 				'first_day' => 1,
 			),
 			array (
@@ -28,8 +30,34 @@ if (function_exists("register_field_group"))
 				'name' => 'data_do',
 				'type' => 'date_picker',
 				'date_format' => 'dd.mm',
-				'display_format' => 'dd.mm.yyyy',
+				'display_format' => 'dd.mm.yy',
 				'first_day' => 1,
+			),
+			array (
+				'key' => 'field_5402795f28caf',
+				'label' => 'Godzina rozpoczęcia',
+				'name' => 'godzina_od',
+				'type' => 'date_time_picker',
+				'show_date' => 'false',
+				'date_format' => 'm/d/y',
+				'time_format' => 'H:mm',
+				'show_week_number' => 'false',
+				'picker' => 'slider',
+				'save_as_timestamp' => 'true',
+				'get_as_timestamp' => 'false',
+			),
+			array (
+				'key' => 'field_54027a69e1e07',
+				'label' => 'Godzina zakończenia',
+				'name' => 'godzina_do',
+				'type' => 'date_time_picker',
+				'show_date' => 'false',
+				'date_format' => 'm/d/y',
+				'time_format' => 'H:mm',
+				'show_week_number' => 'false',
+				'picker' => 'slider',
+				'save_as_timestamp' => 'true',
+				'get_as_timestamp' => 'false',
 			),
 			array (
 				'key' => 'field_5402384b0917d',

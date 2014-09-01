@@ -4,29 +4,40 @@
  *
  * @package Salsa Siempre
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<main role="main">
+<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php while ( have_posts() ) : the_post(); ?>
+	<?php if (get_the_post_thumbnail()):
+	the_post_thumbnail("news-image", array("class" => "news-image", "alt" => ""));
+	endif; ?>
 
-			<?php get_template_part( 'content', 'single' ); ?>
+	<article id="post-<?php the_ID(); ?>" class="news" <?php post_class(); ?>>
+		<header class="news-header">
+			<h1 class="news-title"><?php the_title(); ?></h1>
+			<?php if ( get_field("data_od") ): ?>
+			<span class="news-detail">Data: <span class="news-detail-value"><?php the_field("data_od");
+				if ( get_field("data_do") ): ?>&nbsp;-&nbsp;<?php the_field("data_do"); endif; ?></span></span>
+			<?php endif; ?>
+			<?php if ( get_field("godzina_od") ): ?>
+			<span class="news-detail">Godzina: <span class="news-detail-value"><?php the_field("godzina_od");
+				if ( get_field("godzina_do") ): ?>&nbsp;-&nbsp;<?php the_field("godzina_do"); endif; ?></span></span>
+			<?php endif; ?>
+			<?php if ( get_field("miejsce") ): ?>
+			<span class="news-detail">Miejsce:&nbsp;<span class="news-detail-value"><?php the_field("miejsce"); ?></span></span>
+			<?php endif; ?>
+		</header>
 
-			<?php salsa_siempre_post_nav(); ?>
+		<div class="news-content">
+			<?php the_content(); ?>
+		</div>
+	</article>
 
-			<?php
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || '0' != get_comments_number() ) :
-					comments_template();
-				endif;
-			?>
-
-		<?php endwhile; // end of the loop. ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+<?php endwhile; ?>
+</main>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
