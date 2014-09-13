@@ -9,6 +9,35 @@ function remove_thumbnail_dimensions( $html ) {
     return $html;
 }
 
+function custom_post_types() {
+	$labels = array(
+		'name'                => _x( 'Instruktorzy', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Intruktor', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Instruktorzy', 'text_domain' ),
+//		'parent_item_colon'   => __( 'Parent Item:', 'text_domain' ),
+		'all_items'           => __( 'Wszyscy instruktorzy', 'text_domain' ),
+		'view_item'           => __( 'Zobacz', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nowego instruktora', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nowego', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj instruktora', 'text_domain' ),
+//		'update_item'         => __( 'Update Item', 'text_domain' ),
+		'search_items'        => __( 'Szukaj instruktora', 'text_domain' ),
+		'not_found'           => __( 'Nie znaleziono żadnych instruktorów.', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nie znaleziono żadnych instruktorów w koszu.', 'text_domain' )
+	);
+	$args = array(
+		'label'               => __( 'teacher', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'public'              => true,
+		'show_in_menu'        => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-universal-access'
+	);
+	register_post_type( 'teacher', $args );
+}
+
 if(function_exists("register_field_group"))
 {
 	register_field_group(array (
@@ -115,5 +144,6 @@ function remove_menus() {
 }
 
 // add_action( 'admin_menu', 'remove_menus', 999 );
+add_action( 'init', 'custom_post_types', 0 );
 
 ?>
