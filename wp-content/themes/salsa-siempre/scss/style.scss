@@ -2,6 +2,7 @@
 @import "header.scss";
 @import "footer.scss";
 @import "news.scss";
+@import "teachers.scss";
 
 body {
 	font-family: "Open Sans", sans-serif;
@@ -19,4 +20,11 @@ body {
 	max-width: 1230px;
 	margin: 0 auto;
 	padding: 0 1.5em;
+}
+
+.page-title {
+	font-size: 2em;
+	margin: 0 0 1.5em 0.75em;
+	padding-left: 0.7em;
+	border-left: 0.35em solid $pink;
 }
