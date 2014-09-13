@@ -11,6 +11,19 @@
 		display: block;
 		text-decoration: none;
 		color: inherit;
+		&:hover, &:focus {
+			& .news-item-image-wrapper {
+				position: relative;
+				&:before {
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					background-color: $yellow;
+					opacity: 0.75;
+				}
+			}
+		};
 	}
 }
 

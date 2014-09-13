@@ -6,9 +6,11 @@
 
 --><section class="news-item">
 	<a href="<?php esc_url(the_permalink()); ?>" rel="bookmark">
-		<?php if ( get_the_post_thumbnail() ):
-		the_post_thumbnail("news-item-image", array("class" => "news-item-image", "alt" => ""));
-		endif; ?>
+		<?php if ( get_the_post_thumbnail() ): ?>
+		<div class="news-item-image-wrapper">
+			<?php the_post_thumbnail("news-item-image", array("class" => "news-item-image", "alt" => "")); ?>
+		</div>
+		<?php endif; ?>
 		<div class="news-item-caption">
 			<h2 class="news-item-title"><?php the_title(); ?></h2>
 			<?php if ( get_field("data_od") ): ?>
