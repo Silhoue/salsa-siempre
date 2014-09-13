@@ -25,8 +25,9 @@
 
 	<header class="header" role="banner">
 		<div class="header-inner">
-			<img class="header-logo" src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="Salsa Siempre"/>
-
+			<a href="<?php echo esc_url(home_url()); ?>">
+				<img class="header-logo" src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="Salsa Siempre"/>
+			</a>
 			<nav class="main-navigation" role="navigation">
 				<button class="menu-toggle"><?php _e( 'Primary Menu', 'salsa-siempre' ); ?></button>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
