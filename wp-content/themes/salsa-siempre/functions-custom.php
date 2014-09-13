@@ -1,6 +1,7 @@
 <?php
 add_image_size("news-item-image", 370, 240, true);
 add_image_size("news-image", 470, 305, true);
+add_image_size("teachers-item-image", 370, 490, true);
 
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10);
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10);
