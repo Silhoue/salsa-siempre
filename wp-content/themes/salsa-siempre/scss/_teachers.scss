@@ -1,3 +1,4 @@
+/* listing */
 .teachers-item-caption {
 	height: 4em;
 	background-color: $yellow;
@@ -8,4 +9,13 @@
 	font-size: 1.6em;
 	line-height: 2.5em;
 	margin: 0;
+}
+
+/* single */
+.teacher-image {
+	vertical-align: bottom;
+}
+
+.teacher-skills-rating {
+	color: $yellow;
 }
