@@ -7,11 +7,125 @@ add_image_size("teacher-image", 470, 490, true);
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10);
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10);
 function remove_thumbnail_dimensions( $html ) {
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
-    return $html;
+	$html = preg_replace( '/(width|height)=\"\d*\"\s/', "", $html );
+	return $html;
 }
 
-function custom_post_types() {
+add_filter('wp_insert_post_data', 'set_default_class_post_title', 10, 2 );
+function set_default_class_post_title( $data, $postarr ) {
+  if ( $data['post_type'] == 'class' ) {
+	  $data['post_title'] = "Kurs";
+  }
+  return $data;
+}
+
+add_filter('manage_class_posts_columns', 'add_class_posts_custom_columns');
+function add_class_posts_custom_columns( $columns ) {
+	$custom_columns = array(
+		'type' => 'Rodzaj',
+		'level' => 'Poziom',
+		'day_of_week' => 'Dzień tygodnia',
+		'start_hour' => 'Godzina',
+		'teachers' => 'Instruktorzy'
+	);
+	$columns = array_slice( $columns, 0, 2, true ) + $custom_columns + array_slice( $columns, 2, NULL, true );
+	return $columns;
+}
+
+add_action( 'manage_class_posts_custom_column', 'define_class_posts_custom_columns', 10, 2 );
+function define_class_posts_custom_columns( $column_name, $post_id ) {
+	switch ($column_name) {
+	case 'day_of_week':
+		$days_of_week = ['poniedziałek','wtorek','środa','czwartek','piątek','sobota','niedziela'];
+		echo $days_of_week[get_field('day_of_week', $post_id)];
+		break;
+	case 'start_hour':
+		echo get_field('start_hour', $post_id);
+		break;
+	case 'type':
+		$type = get_field('type', $post_id);
+		echo $type->post_title;
+		break;
+	case 'level':
+		$level = get_field('level', $post_id);
+		echo $level->post_title;
+		break;
+	case 'teachers':
+		$teacher1 = get_field('teacher_1', $post_id);
+		$teachers = $teacher1->post_title;
+		$teacher2 = get_field('teacher_2', $post_id);
+		if ($teacher2) {
+			$teachers .= " & ".$teacher2->post_title;
+		}
+		echo $teachers;
+		break;
+	}
+}
+
+add_filter( 'manage_edit-class_sortable_columns', 'add_class_posts_sortable_columns' );
+function add_class_posts_sortable_columns( $columns ) {
+	$columns['day_of_week'] = 'day_of_week';
+	$columns['start_hour'] = 'start_hour';
+	$columns['type'] = 'related.type';
+	$columns['level'] = 'related.level';
+	$columns['teachers'] = 'related.teachers';
+	return $columns;
+}
+
+add_filter( 'request', 'define_class_posts_sortable_columns' );
+function define_class_posts_sortable_columns( $vars ) {
+	if ( $vars['post_type'] == 'class' ) {
+		if ('day_of_week' == $vars['orderby'] ) {
+			$vars = array_merge( $vars, array(
+				'meta_key' => 'day_of_week',
+				'orderby' => 'meta_value'
+			));
+		} elseif ('start_hour' == $vars['orderby'] ) {
+			$vars = array_merge( $vars, array(
+				'meta_key' => 'start_hour',
+				'orderby' => 'meta_value'
+			) );
+		} elseif ('type' == $vars['orderby'] ) {
+			$vars = array_merge( $vars, array(
+				'orderby' => 'wp_posts.type'
+			) );
+		}
+	}
+	return $vars;
+}
+
+add_filter( 'posts_orderby', 'orderby_related_post_title' );
+function orderby_related_post_title( $orderby_statement ) {
+	if (strpos($_GET['orderby'], 'related.') === 0) {
+		$meta_key = substr($_GET['orderby'], 8);
+		if ( ctype_alnum($meta_key) ) {
+			$query = '(
+				SELECT post_title
+				FROM wp_posts AS related
+				JOIN wp_postmeta AS meta
+				ON related.id = meta.meta_value
+				WHERE meta.meta_key = "%s"
+				AND wp_posts.id = meta.post_id
+			)';
+			if ($meta_key === 'teachers') {
+				$orderby_statement = 'CONCAT_WS(" & ", '
+					.sprintf($query, "teacher_1")
+					.', '
+					.sprintf($query, "teacher_2")
+					.')';
+			} else {
+				$orderby_statement = sprintf($query, $meta_key);
+			}
+
+			$orderby_statement .= ($_GET['order'] === 'desc') ? ' desc' : ' asc';
+		}
+	}
+
+	return $orderby_statement;
+}
+
+add_action( 'init', 'register_custom_post_types', 0 );
+function register_custom_post_types() {
 	$labels = array(
 		'name'                => _x( 'Instruktorzy', 'Post Type General Name', 'text_domain' ),
 		'singular_name'       => _x( 'Intruktor', 'Post Type Singular Name', 'text_domain' ),
@@ -38,10 +152,267 @@ function custom_post_types() {
 		'menu_icon'           => 'dashicons-universal-access'
 	);
 	register_post_type( 'teacher', $args );
+
+	$labels = array(
+		'name'                => _x( 'Kursy', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Kurs', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Kursy', 'text_domain' ),
+		'all_items'           => __( 'Wszystkie kursy', 'text_domain' ),
+		'view_item'           => __( 'Zobacz', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nowy kurs', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nowy', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj kurs', 'text_domain' ),
+		'search_items'        => __( 'Szukaj kursu', 'text_domain' ),
+		'not_found'           => __( 'Nie znaleziono żadnych kursów.', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nie znaleziono żadnych kursów w koszu.', 'text_domain' )
+	);
+	$args = array(
+		'label'               => __( 'class', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => false,
+		'public'              => true,
+		'show_in_menu'        => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 7,
+		'menu_icon'           => 'dashicons-calendar'
+	);
+	register_post_type( 'class', $args );
+
+	$labels = array(
+		'name'                => _x( 'Rodzaje kursów', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Rodzaj', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Rodzaje kursów', 'text_domain' ),
+		'all_items'           => __( 'Wszystkie rodzaje', 'text_domain' ),
+		'view_item'           => __( 'Zobacz', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nowy rodzaj', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nowy', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj rodzaj', 'text_domain' ),
+		'search_items'        => __( 'Szukaj rodzaju', 'text_domain' ),
+		'not_found'           => __( 'Nie znaleziono żadnych rodzajów.', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nie znaleziono żadnych rodzajów w koszu.', 'text_domain' )
+	);
+	$args = array(
+		'label'               => __( 'type', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title' ),
+		'public'              => true,
+		'show_in_menu'        => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 7,
+		'menu_icon'           => 'dashicons-screenoptions'
+	);
+	register_post_type( 'type', $args );
+
+	$labels = array(
+		'name'                => _x( 'Poziomy kursów', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Poziom', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Poziomy kursów', 'text_domain' ),
+		'all_items'           => __( 'Wszystkie poziomy', 'text_domain' ),
+		'view_item'           => __( 'Zobacz', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nowy poziom', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nowy', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj poziom', 'text_domain' ),
+		'search_items'        => __( 'Szukaj poziomu', 'text_domain' ),
+		'not_found'           => __( 'Nie znaleziono żadnych poziomów.', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nie znaleziono żadnych poziomów w koszu.', 'text_domain' )
+	);
+	$args = array(
+		'label'               => __( 'level', 'text_domain' ),
+		'labels'              => $labels,
+		'supports'            => array( 'title' ),
+		'public'              => true,
+		'show_in_menu'        => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 8,
+		'menu_icon'           => 'dashicons-chart-bar'
+	);
+	register_post_type( 'level', $args );
 }
 
 if(function_exists("register_field_group"))
 {
+	register_field_group(array (
+		'id' => 'acf_class',
+		'title' => 'Class',
+		'fields' => array (
+			array (
+				'key' => 'field_5416269207a8c',
+				'label' => 'Nowy',
+				'name' => 'is_new',
+				'type' => 'true_false',
+				'instructions' => 'nowe kursy będą widoczne w kolumnie "Nowe kursy" na stronie głównej',
+				'message' => 'Nowy kurs',
+				'default_value' => 0,
+			),
+			array (
+				'key' => 'field_54160205abd6b',
+				'label' => 'Rodzaj kursu',
+				'name' => 'type',
+				'type' => 'post_object',
+				'required' => 1,
+				'post_type' => array (
+					0 => 'type',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_54160385bb82c',
+				'label' => 'Poziom kursu',
+				'name' => 'level',
+				'type' => 'post_object',
+				'required' => 1,
+				'post_type' => array (
+					0 => 'level',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_541603a6bb82d',
+				'label' => 'Instruktor 1',
+				'name' => 'teacher_1',
+				'type' => 'post_object',
+				'required' => 1,
+				'post_type' => array (
+					0 => 'teacher',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_5416040a5a6be',
+				'label' => 'Instruktor 2',
+				'name' => 'teacher_2',
+				'type' => 'post_object',
+				'post_type' => array (
+					0 => 'teacher',
+				),
+				'taxonomy' => array (
+					0 => 'all',
+				),
+				'allow_null' => 1,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_541605b29f616',
+				'label' => 'Dzień tygodnia',
+				'name' => 'day_of_week',
+				'type' => 'select',
+				'required' => 1,
+				'choices' => array (
+					0 => 'poniedziałek',
+					1 => 'wtorek',
+					2 => 'środa',
+					3 => 'czwartek',
+					4 => 'piątek',
+					5 => 'sobota',
+					6 => 'niedziela',
+				),
+				'default_value' => '',
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+			array (
+				'key' => 'field_5416041a5a6bf',
+				'label' => 'Godzina rozpoczęcia',
+				'name' => 'start_hour',
+				'type' => 'date_time_picker',
+				'required' => 1,
+				'show_date' => 'false',
+				'date_format' => 'm/d/y',
+				'time_format' => 'H:mm',
+				'show_week_number' => 'false',
+				'picker' => 'slider',
+				'save_as_timestamp' => 'true',
+				'get_as_timestamp' => 'false',
+			),
+			array (
+				'key' => 'field_541604c722744',
+				'label' => 'Godzina zakończenia',
+				'name' => 'end_hour',
+				'type' => 'date_time_picker',
+				'required' => 1,
+				'show_date' => 'false',
+				'date_format' => 'm/d/y',
+				'time_format' => 'H:mm',
+				'show_week_number' => 'false',
+				'picker' => 'slider',
+				'save_as_timestamp' => 'true',
+				'get_as_timestamp' => 'false',
+			),
+			array (
+				'key' => 'field_541604e122745',
+				'label' => 'Data rozpoczęcia',
+				'name' => 'start_date',
+				'type' => 'date_picker',
+				'date_format' => 'dd.mm',
+				'display_format' => 'dd/mm/yy',
+				'first_day' => 1,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'class',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_level',
+		'title' => 'Level',
+		'fields' => array (
+			array (
+				'key' => 'field_5415fb1ec3b71',
+				'label' => 'Kolor',
+				'name' => 'color',
+				'type' => 'color_picker',
+				'required' => 1,
+				'default_value' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'level',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'permalink',
+				1 => 'slug',
+			),
+		),
+		'menu_order' => 0,
+	));
 	register_field_group(array (
 		'id' => 'acf_news',
 		'title' => 'News',
@@ -122,6 +493,32 @@ if(function_exists("register_field_group"))
 				1 => 'format',
 				2 => 'categories',
 				3 => 'tags',
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_static-pages-hide-only',
+		'title' => 'Static pages (hide only)',
+		'fields' => array (
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page',
+					'operator' => '==',
+					'value' => '19',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'the_content',
+				1 => 'featured_image',
 			),
 		),
 		'menu_order' => 0,
@@ -324,8 +721,35 @@ if(function_exists("register_field_group"))
 		),
 		'menu_order' => 0,
 	));
+	register_field_group(array (
+		'id' => 'acf_type-hide-only',
+		'title' => 'Type (hide only)',
+		'fields' => array (
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'type',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'permalink',
+				1 => 'slug',
+			),
+		),
+		'menu_order' => 0,
+	));
 }
 
+// add_action( 'admin_menu', 'remove_menus', 999 );
 function remove_menus() {
 	remove_menu_page('edit-comments.php');
 	remove_menu_page('themes.php');
@@ -333,17 +757,14 @@ function remove_menus() {
 	remove_menu_page('tools.php');
 	remove_menu_page('edit.php?post_type=acf');
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
-    remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
-    remove_submenu_page('edit.php', 'post-new.php');
-    remove_submenu_page('edit.php', 'edit.php');
-    remove_submenu_page('upload.php', 'upload.php');
-    remove_submenu_page('upload.php', 'media-new.php');
-    remove_submenu_page('edit.php?post_type=page', 'edit.php?post_type=page');
-    remove_submenu_page('edit.php?post_type=page', 'post-new.php?post_type=page');
-    remove_submenu_page('users.php', 'user-new.php');
+	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
+	remove_submenu_page('edit.php', 'post-new.php');
+	remove_submenu_page('edit.php', 'edit.php');
+	remove_submenu_page('upload.php', 'upload.php');
+	remove_submenu_page('upload.php', 'media-new.php');
+	remove_submenu_page('edit.php?post_type=page', 'edit.php?post_type=page');
+	remove_submenu_page('edit.php?post_type=page', 'post-new.php?post_type=page');
+	remove_submenu_page('users.php', 'user-new.php');
 }
-
-// add_action( 'admin_menu', 'remove_menus', 999 );
-add_action( 'init', 'custom_post_types', 0 );
 
 ?>
