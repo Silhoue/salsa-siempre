@@ -36,7 +36,7 @@ add_action( 'manage_class_posts_custom_column', 'define_class_posts_custom_colum
 function define_class_posts_custom_columns( $column_name, $post_id ) {
 	switch ($column_name) {
 	case 'day_of_week':
-		$days_of_week = ['poniedziałek','wtorek','środa','czwartek','piątek','sobota','niedziela'];
+		$days_of_week = array('poniedziałek','wtorek','środa','czwartek','piątek','sobota','niedziela');
 		echo $days_of_week[get_field('day_of_week', $post_id)];
 		break;
 	case 'start_hour':
