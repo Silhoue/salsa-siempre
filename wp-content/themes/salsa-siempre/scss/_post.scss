@@ -1,0 +1,40 @@
+.post {
+	display: inline-block;
+	max-width: 57em;
+	padding: 0 1.5em;
+	margin-bottom: 3em;
+}
+
+.post-image {
+	display: inline-block;
+	vertical-align: top;
+	border-bottom: $yellow solid 0.7em;
+	margin: 0 1.5em 3em;
+}
+
+.post-header {
+	padding-left: 1.4em;
+	border-left: 0.7em solid $pink;
+	word-wrap: break-word;
+}
+
+.post-title {
+	margin: 0 0 0.5em;
+	font-size: 2em;
+}
+
+.post-detail {
+	font-size: 1.6em;
+	display: block;
+}
+
+.post-detail-value {
+	font-weight: bold;
+}
+
+.post-content {
+	font-size: 1.4em;
+	& p {
+		margin: 1em 0 0;
+	}
+}

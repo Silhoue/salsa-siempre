@@ -9,26 +9,27 @@
  *
  * @package Salsa Siempre
  */
+?>
 
-get_header(); ?>
+<?php get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<main role="main">
+<?php while ( have_posts() ) : the_post(); ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+	<?php if (get_the_post_thumbnail()) {
+		the_post_thumbnail("news-image", array("class" => "post-image", "alt" => ""));
+	} ?>
 
-				<?php get_template_part( 'content', 'page' ); ?>
+	<article id="post-<?php the_ID(); ?>" class="post" <?php post_class(); ?>>
+		<header class="post-header">
+			<h1 class="post-title"><?php the_title(); ?></h1>
+		</header>
+		<div class="post-content">
+			<?php the_content(); ?>
+		</div>
+	</article>
 
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || '0' != get_comments_number() ) :
-						comments_template();
-					endif;
-				?>
-
-			<?php endwhile; // end of the loop. ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+<?php endwhile; ?>
+</main>
 
 <?php get_footer(); ?>
