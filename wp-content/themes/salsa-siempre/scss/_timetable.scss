@@ -2,8 +2,9 @@
 $timetable-font-size: 1.2;
 
 .timetable-day {
-	margin-bottom: 3em;
-	font-size: 1em * $timetable-font-size
+	font-size: 1em * $timetable-font-size;
+	padding: 0 1.5em / $timetable-font-size;
+	margin-bottom: 3em / $timetable-font-size;
 }
 
 .timetable-day-title {
@@ -25,7 +26,8 @@ $timetable-font-size: 1.2;
 .timetable-class {
 	color: #fff;
 	display: inline-block;
-	min-width: 16.6em / $timetable-font-size;
+	vertical-align: top;
+	width: 16.6em / $timetable-font-size;
 	padding: 1.4em / $timetable-font-size 1em;
 	margin-bottom: 1px;
 }
@@ -45,9 +47,12 @@ $timetable-font-size: 1.2;
 
 /* levels */
 .timetable-levels {
-	float: right;
 	max-width: 17em;
-	margin-bottom: 3em;
+	padding: 0 1.5em;
+	margin-bottom: 2.6em;
+	@media screen and (min-width: 50.8125em) {
+		float: right;
+	}
 }
 
 .timetable-levels-title {
