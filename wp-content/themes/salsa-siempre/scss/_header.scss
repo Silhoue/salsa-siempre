@@ -40,7 +40,7 @@
 		line-height: 1.5em;
 		text-decoration: none;
 		display: inline-block;
-		padding: 0.5em 0.8em;
+		padding: 0.5em 0.55em;
 	}
 }
 
@@ -57,7 +57,7 @@
 		border-top: 1px solid #fff;
 	}
 	& a {
-		padding-left: 1.2em;
+		padding-left: 0.95em;
 		display: block;
 	}
 }
@@ -74,7 +74,7 @@
 .sub-menu li {
 	& > a:hover,
 	&.current_page_item > a {
-		padding-left: 0.8em;
+		padding-left: 0.55em;
 		border-left: 0.4em solid $yellow;
 	}
 }
