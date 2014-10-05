@@ -1,0 +1,78 @@
+/* timetable */
+$timetable-font-size: 1.2;
+
+.timetable-day {
+	margin-bottom: 3em;
+	font-size: 1em * $timetable-font-size
+}
+
+.timetable-day-title {
+	font-size: 1.5em;
+	font-weight: normal;
+	color: $timetable-pink;
+	margin: 0.8em 0 0.3em;
+}
+
+.timetable-day-empty {
+	font-style: italic;
+}
+
+.timetable-studio-title {
+	margin: 0.5em 0;
+	font-weight: normal;
+}
+
+.timetable-class {
+	color: #fff;
+	display: inline-block;
+	min-width: 16.6em / $timetable-font-size;
+	padding: 1.4em / $timetable-font-size 1em;
+	margin-bottom: 1px;
+}
+
+.timetable-class-title {
+	line-height: 1.2em;
+	display: block;
+}
+
+.timetable-class-details {
+	font-size: 0.75em;
+}
+
+.timetable-class-hours:before {
+	content: "| ";
+}
+
+/* levels */
+.timetable-levels {
+	float: right;
+	max-width: 17em;
+	margin-bottom: 3em;
+}
+
+.timetable-levels-title {
+	font-size: 1.5em;
+	font-weight: normal;
+	margin: 0 0 0.667em;
+}
+
+.timetable-levels-items {
+	padding: 0;
+	margin: 0;
+}
+
+.timetable-levels-item {
+	list-style: none;
+	font-size: 1em;
+	font-weight: normal;
+	display: inline-block;
+	min-width: 50%;
+	margin-bottom: 0.4em;
+}
+
+.timetable-levels-item-color {
+	display: inline-block;
+	vertical-align: middle;
+	width: 2.2em;
+	height: 1.8em;
+}

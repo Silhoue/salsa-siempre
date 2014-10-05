@@ -359,6 +359,20 @@ if(function_exists("register_field_group"))
 				'display_format' => 'dd/mm/yy',
 				'first_day' => 1,
 			),
+			array (
+				'key' => 'field_543031fb6cf81',
+				'label' => 'Sala',
+				'name' => 'studio',
+				'type' => 'select',
+				'required' => 1,
+				'choices' => array (
+					0 => 'Sala 1',
+					1 => 'Sala 2',
+				),
+				'default_value' => '',
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
 		),
 		'location' => array (
 			array (
