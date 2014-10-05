@@ -44,7 +44,7 @@ function salsa_siempre_setup() {
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'salsa-siempre' ),
 	) );
-	
+
 	/*
 	 * Switch default core markup for search form, comment form, and comments
 	 * to output valid HTML5.
@@ -69,24 +69,6 @@ function salsa_siempre_setup() {
 }
 endif; // salsa_siempre_setup
 add_action( 'after_setup_theme', 'salsa_siempre_setup' );
-
-/**
- * Register widget area.
- *
- * @link http://codex.wordpress.org/Function_Reference/register_sidebar
- */
-function salsa_siempre_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Sidebar', 'salsa-siempre' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
-}
-add_action( 'widgets_init', 'salsa_siempre_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
