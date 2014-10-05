@@ -1,3 +1,4 @@
+/* header */
 .header {
 	background-color: $blue;
 	margin-top: 2.5em;
@@ -21,7 +22,9 @@
 	margin-top: -1em;
 }
 
-.menu ul {
+/* menu */
+.menu,
+.sub-menu {
 	float: right;
 	margin: 0;
 	padding: 0;
@@ -41,12 +44,11 @@
 	}
 }
 
-.menu ul ul {
+.sub-menu {
 	visibility: hidden;
 	float: none; /* overwriting */
 	position: absolute;
-	background-color: $blue;
-	opacity: 0.65;
+	background-color: $light-blue;
 	right: 0;
 	& li {
 		display: block;
@@ -60,7 +62,7 @@
 	}
 }
 
-.menu > ul > li {
+.menu > li {
 	& > a:hover,
 	&.current_page_item > a,
 	&.current_page_parent > a {
@@ -69,7 +71,7 @@
 	}
 }
 
-.menu ul ul li {
+.sub-menu li {
 	& > a:hover,
 	&.current_page_item > a {
 		padding-left: 0.8em;
