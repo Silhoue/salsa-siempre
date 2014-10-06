@@ -31,10 +31,10 @@
 				<img class="header-logo" src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="Salsa Siempre"/>
 			</a>
 			<nav class="main-navigation" role="navigation">
-				<button class="menu-toggle"><?php _e( 'Primary Menu', 'salsa-siempre' ); ?></button>
+				<span class="menu-toggle">☰</span>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-			</nav><!-- .main-navigation -->
+			</nav>
 		</div>
-	</header><!-- .header -->
+	</header>
 
 	<div class="content">

@@ -5,10 +5,13 @@
 }
 
 .header-inner {
+	z-index: 0;
+	font-size: 2em;
+	position: relative;
 	max-width: 1170px;
+	min-height: 2.5em;
 	margin: 0 auto 3em;
 	padding: 0 1.5em;
-	font-size: 2em;
 	&:after {
 		content: "";
 		display: block;
@@ -23,8 +26,24 @@
 }
 
 /* menu */
+$menu-max-width: 1023px;
+
+.menu-toggle {
+	color: white;
+	font-size: 1.25em;
+	line-height: 2em;
+	display: none;
+	float: right;
+	padding: 0 0.44em 0 0.68em;
+	@media screen and (max-width: $menu-max-width) {
+		display: block;
+	}
+}
+
 .menu,
 .sub-menu {
+	background-color: $blue;
+	text-align: right;
 	float: right;
 	margin: 0;
 	padding: 0;
@@ -42,6 +61,23 @@
 		display: inline-block;
 		padding: 0.5em 0.55em;
 	}
+	@media screen and (max-width: $menu-max-width) {
+		z-index: -1;
+		visibility: hidden;
+		position: absolute;
+		top: 2.5em;
+		right: 1.5em;
+		& li {
+			display: block;
+			border-top: 1px solid #fff;
+		}
+		& a {
+			display: block;
+		}
+		&.active, .active & {
+			visibility: visible;
+		}
+	}
 }
 
 .sub-menu {
@@ -52,7 +88,6 @@
 	right: 0;
 	& li {
 		display: block;
-		text-align: right;
 		white-space: nowrap;
 		border-top: 1px solid #fff;
 	}
@@ -60,14 +95,29 @@
 		padding-left: 0.95em;
 		display: block;
 	}
+	@media screen and (max-width: $menu-max-width) {
+		position: static;
+	}
 }
 
-.menu > li {
-	& > a:hover,
-	&.current_page_item > a,
-	&.current_page_parent > a {
-		padding-bottom: 0.15em;
-		border-bottom: 0.35em solid $yellow;
+@media screen and (min-width: $menu-max-width+1) {
+	.menu > li {
+		& > a:hover,
+		&.current_page_item > a,
+		&.current_page_parent > a {
+			padding-bottom: 0.15em;
+			border-bottom: 0.35em solid $yellow;
+		}
+	}
+}
+@media screen and (max-width: $menu-max-width) {
+	.menu > li {
+		& > a:hover,
+		&.current_page_item > a,
+		&.current_page_parent > a {
+			padding-left: 0.55em;
+			border-left: 0.4em solid $yellow;
+		}
 	}
 }
 
