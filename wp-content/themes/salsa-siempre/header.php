@@ -31,7 +31,7 @@
 				<img class="header-logo" src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="Salsa Siempre"/>
 			</a>
 			<nav class="main-navigation" role="navigation">
-				<span class="menu-toggle">☰</span>
+				<span class="menu-toggle"></span>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			</nav>
 		</div>

@@ -29,7 +29,6 @@
 $menu-max-width: 1023px;
 
 .menu-toggle {
-	color: white;
 	font-size: 1.25em;
 	line-height: 2em;
 	display: none;
@@ -38,6 +37,17 @@ $menu-max-width: 1023px;
 	@media screen and (max-width: $menu-max-width) {
 		display: block;
 	}
+}
+
+.menu-toggle:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  width: 1.20em;
+  height: 0.2em;
+  margin-bottom: 0.24em;
+  border-top: 0.6em double #fff;
+  border-bottom: 0.2em solid #fff;
 }
 
 .menu,
@@ -72,6 +82,7 @@ $menu-max-width: 1023px;
 			border-top: 1px solid #fff;
 		}
 		& a {
+			padding-left: 0.95em;
 			display: block;
 		}
 		&.active, .active & {
@@ -110,6 +121,7 @@ $menu-max-width: 1023px;
 		}
 	}
 }
+
 @media screen and (max-width: $menu-max-width) {
 	.menu > li {
 		& > a:hover,
