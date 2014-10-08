@@ -117,6 +117,7 @@ $menu-max-width: 1023px;
 @media screen and (min-width: $menu-max-width+1) {
 	.menu > li {
 		& > a:hover,
+		& > a:focus,
 		&.current_page_item > a,
 		&.current_page_parent > a {
 			padding-bottom: 0.15em;
