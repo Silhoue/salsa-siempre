@@ -60,9 +60,6 @@ $menu-max-width: 1023px;
 	& li {
 		display: inline-block;
 		position: relative;
-		&:hover ul {
-			visibility: visible;
-		}
 	}
 	& a {
 		color: #fff;
@@ -97,6 +94,9 @@ $menu-max-width: 1023px;
 	position: absolute;
 	background-color: $light-blue;
 	right: 0;
+	.menu:hover & {
+		visibility: visible;
+	}
 	& li {
 		display: block;
 		white-space: nowrap;
@@ -108,6 +108,9 @@ $menu-max-width: 1023px;
 	}
 	@media screen and (max-width: $menu-max-width) {
 		position: static;
+		.menu:hover & {
+			visibility: inherit;
+		}
 	}
 }
 
