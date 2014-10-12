@@ -197,7 +197,7 @@ function register_custom_post_types() {
 		'label'               => __( 'type', 'text_domain' ),
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'rodzaje-kursów' ),
-		'supports'            => array( 'title', 'editor' ),
+		'supports'            => array( 'title', 'editor', 'thumbnail' ),
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
@@ -600,11 +600,20 @@ if(function_exists("register_field_group"))
 		'location' => array (
 			array (
 				array (
-					'param' => 'page',
+					'param' => 'page_template',
 					'operator' => '==',
-					'value' => '19',
+					'value' => 'teachers.php',
 					'order_no' => 0,
 					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'types.php',
+					'order_no' => 0,
+					'group_no' => 1,
 				),
 			),
 		),
