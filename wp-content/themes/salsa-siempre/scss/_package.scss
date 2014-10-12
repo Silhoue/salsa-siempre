@@ -1,0 +1,20 @@
+/* listing */
+.package {
+	@extend .news-item;
+	vertical-align: top;
+}
+
+.package-caption {
+	@extend .news-item-caption;
+	height: auto;
+}
+
+.package-title {
+	@extend .news-item-title;
+}
+
+.package-content {
+	font-size: 1.4em;
+	line-height: 1.4em;
+	font-weight: 300;
+}

@@ -144,6 +144,7 @@ function register_custom_post_types() {
 	$args = array(
 		'label'               => __( 'teacher', 'text_domain' ),
 		'labels'              => $labels,
+		'rewrite'			  => array( 'slug' => 'instruktorzy' ),
 		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions' ),
 		'public'              => true,
 		'show_in_menu'        => true,
@@ -169,6 +170,7 @@ function register_custom_post_types() {
 	$args = array(
 		'label'               => __( 'class', 'text_domain' ),
 		'labels'              => $labels,
+		'rewrite'			  => array( 'slug' => 'kursy' ),
 		'supports'            => false,
 		'public'              => true,
 		'show_in_menu'        => true,
@@ -194,7 +196,8 @@ function register_custom_post_types() {
 	$args = array(
 		'label'               => __( 'type', 'text_domain' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title' ),
+		'rewrite'			  => array( 'slug' => 'rodzaje-kursów' ),
+		'supports'            => array( 'title', 'editor' ),
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
@@ -219,7 +222,8 @@ function register_custom_post_types() {
 	$args = array(
 		'label'               => __( 'level', 'text_domain' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title' ),
+		'rewrite'			  => array( 'slug' => 'poziomy-kursów' ),
+		'supports'            => array( 'title', 'editor' ),
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
@@ -227,6 +231,32 @@ function register_custom_post_types() {
 		'menu_icon'           => 'dashicons-chart-bar'
 	);
 	register_post_type( 'level', $args );
+
+	$labels = array(
+		'name'                => _x( 'Karnety', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Karnet', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Karnety', 'text_domain' ),
+		'all_items'           => __( 'Wszystkie karnety', 'text_domain' ),
+		'view_item'           => __( 'Zobacz', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nowy karnet', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nowy', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj karnet', 'text_domain' ),
+		'search_items'        => __( 'Szukaj karnetu', 'text_domain' ),
+		'not_found'           => __( 'Nie znaleziono żadnych karnetów.', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nie znaleziono żadnych karnetów w koszu.', 'text_domain' )
+	);
+	$args = array(
+		'label'               => __( 'package', 'text_domain' ),
+		'labels'              => $labels,
+		'rewrite'			  => array( 'slug' => 'karnety' ),
+		'supports'            => array( 'title', 'editor', 'thumbnail'),
+		'public'              => true,
+		'show_in_menu'        => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 8,
+		'menu_icon'           => 'dashicons-images-alt'
+	);
+	register_post_type( 'package', $args );
 }
 
 if(function_exists("register_field_group"))
@@ -507,6 +537,57 @@ if(function_exists("register_field_group"))
 				1 => 'format',
 				2 => 'categories',
 				3 => 'tags',
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_package',
+		'title' => 'Package',
+		'fields' => array (
+			array (
+				'key' => 'field_543acde78938f',
+				'label' => 'Cena',
+				'name' => 'price',
+				'type' => 'number',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'min' => 0,
+				'max' => '',
+				'step' => '',
+			),
+			array (
+				'key' => 'field_543ad40e521ca',
+				'label' => 'Rodzaj',
+				'name' => 'type',
+				'type' => 'select',
+				'required' => 1,
+				'choices' => array (
+					0 => 'Karnet podstawowy',
+					1 => 'Oferta specjalna',
+				),
+				'default_value' => 0,
+				'allow_null' => 0,
+				'multiple' => 0,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'package',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'acf_after_title',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
 			),
 		),
 		'menu_order' => 0,
