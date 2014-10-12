@@ -15,7 +15,7 @@ gulp.task("watch", function () {
 
 gulp.task("sass", function () {
     return gulp.src(paths.scss)
-      .pipe(sass())
+      .pipe(sass({ errLogToConsole: true }))
       .pipe(minifyCSS())
       .pipe(gulp.dest(paths.css));
 });
