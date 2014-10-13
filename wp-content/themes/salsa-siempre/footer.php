@@ -28,11 +28,17 @@
 			</section><section class="footer-item">
 				<h1 class="footer-item-title">Social media</h1>
 				<ul class="footer-item-media-items">
-					<li class="footer-item-media-item footer-item-media-item-fb"><a href="https://www.facebook.com/salsa.siempre.9"></a></li
-					><li class="footer-item-media-item footer-item-media-item-gp"><a href="https://plus.google.com/+salsasiemprepltaniec"></a></li
-					><li class="footer-item-media-item footer-item-media-item-yt"><a href="https://www.youtube.com/user/salsasiempre1"></a></li>
+					<li class="footer-item-media-item footer-item-media-item-fb">
+						<a href="https://www.facebook.com/salsa.siempre.9"></a>
+					</li
+					><li class="footer-item-media-item footer-item-media-item-gp">
+						<a href="https://plus.google.com/+salsasiemprepltaniec"></a>
+					</li
+					><li class="footer-item-media-item footer-item-media-item-yt">
+						<a href="https://www.youtube.com/user/salsasiempre1"></a>
+					</li>
 				</ul>
-			</section><section class="footer-item">
+			</section><!-- <section class="footer-item">
 				<h1 class="footer-item-title">Newsletter</h1>
 					<span class="footer-item-content">Chcesz być na bieżąco informowany o naszych wydarzeniach?
 
@@ -40,25 +46,23 @@
 						<input type="email" placeholder="Twój adres e-mail" class="footer-newsletter-input" />
 						<button type="submit" class="footer-newsletter-submit">Wyślij</button>
 					</span>
-			</section>
-			<section class="footer-item-partners">
-				<h1 class="footer-item-title footer-item-partners-title">Partnerzy</h1>
-				<ul class="footer-item-partners-items">
-					<li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li
-					><li class="footer-item-partners-item"><a href="http://www.benefitsystems.pl/multisport"><img class="" src="<?php bloginfo('template_directory'); ?>/img/multisport.jpg"/></a></li>
-				</ul>
-			</section>
+			</section> -->
+			<?php $partners = array(
+				'post_type' => 'partner'
+			);
+			query_posts($partners);
+			if (have_posts()) { ?>
+				<section class="footer-item-partners">
+					<h1 class="footer-item-title footer-item-partners-title">Partnerzy</h1>
+					<ul class="footer-item-partners-items">
+						<?php echo "<!--";
+						while (have_posts()) { the_post();
+							get_template_part("partner");
+						} echo "-->"; ?>
+					</ul>
+				</section>
+			<?php } ?>
 		</div>
-		<!-- <div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'salsa-siempre' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'salsa-siempre' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'salsa-siempre' ), 'Salsa Siempre', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div> .site-info -->
 	</footer>
 </div><!-- #page -->
 

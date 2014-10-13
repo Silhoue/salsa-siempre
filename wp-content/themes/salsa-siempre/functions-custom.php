@@ -3,6 +3,7 @@ add_image_size("news-item-image", 370, 240, true);
 add_image_size("news-image", 470, 305, true);
 add_image_size("teachers-item-image", 370, 490, true);
 add_image_size("teacher-image", 470, 490, true);
+add_image_size("partner-image", 170, 120, true);
 
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10);
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10);
@@ -175,7 +176,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 7,
+		'menu_position'       => 5,
 		'menu_icon'           => 'dashicons-calendar'
 	);
 	register_post_type( 'class', $args );
@@ -201,7 +202,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 7,
+		'menu_position'       => 5,
 		'menu_icon'           => 'dashicons-screenoptions'
 	);
 	register_post_type( 'type', $args );
@@ -227,7 +228,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 8,
+		'menu_position'       => 5,
 		'menu_icon'           => 'dashicons-chart-bar'
 	);
 	register_post_type( 'level', $args );
@@ -253,10 +254,36 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 8,
+		'menu_position'       => 5,
 		'menu_icon'           => 'dashicons-images-alt'
 	);
 	register_post_type( 'package', $args );
+
+	$labels = array(
+		'name'                => _x( 'Partnerzy', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Partner', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Partnerzy', 'text_domain' ),
+		'all_items'           => __( 'Wszyscy partnerzy', 'text_domain' ),
+		'view_item'           => __( 'Zobacz', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nowego partnera', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nowego', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj partnera', 'text_domain' ),
+		'search_items'        => __( 'Szukaj partnera', 'text_domain' ),
+		'not_found'           => __( 'Nie znaleziono żadnych partnerów.', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nie znaleziono żadnych partnerów w koszu.', 'text_domain' )
+	);
+	$args = array(
+		'label'               => __( 'partner', 'text_domain' ),
+		'labels'              => $labels,
+		'rewrite'			  => array( 'slug' => 'partnerzy' ),
+		'supports'            => array( 'title', 'thumbnail'),
+		'public'              => true,
+		'show_in_menu'        => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-groups'
+	);
+	register_post_type( 'partner', $args );
 }
 
 if(function_exists("register_field_group"))
@@ -593,6 +620,42 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 	register_field_group(array (
+		'id' => 'acf_partner',
+		'title' => 'Partner',
+		'fields' => array (
+			array (
+				'key' => 'field_543c24a55e257',
+				'label' => 'Link do strony partnera',
+				'name' => 'link',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'partner',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
 		'id' => 'acf_static-pages-hide-only',
 		'title' => 'Static pages (hide only)',
 		'fields' => array (
@@ -860,6 +923,7 @@ function remove_menus() {
 	remove_menu_page('plugins.php');
 	remove_menu_page('tools.php');
 	remove_menu_page('edit.php?post_type=acf');
+	remove_menu_page('admin.php?page=bws_plugins');
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
 	remove_submenu_page('edit.php', 'post-new.php');
