@@ -21,16 +21,15 @@ $footer-font-size: 1.4;
 	display: inline-block;
 	vertical-align: top;
 	margin: 0 1.5em / $footer-font-size 5.5em / $footer-font-size;
+	& p {
+		margin: 1em 0 0;
+	}
 }
 
 .footer-item-title {
 	margin: 0 0 1em;
 	font-size: 1em;
 	font-weight: bold;
-}
-
-.footer-item-content {
-	white-space: pre-line;
 }
 
 /* social media */

@@ -143,7 +143,6 @@ function register_custom_post_types() {
 		'not_found_in_trash'  => __( 'Nie znaleziono żadnych instruktorów w koszu.', 'text_domain' )
 	);
 	$args = array(
-		'label'               => __( 'teacher', 'text_domain' ),
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'instruktorzy' ),
 		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions' ),
@@ -169,7 +168,6 @@ function register_custom_post_types() {
 		'not_found_in_trash'  => __( 'Nie znaleziono żadnych kursów w koszu.', 'text_domain' )
 	);
 	$args = array(
-		'label'               => __( 'class', 'text_domain' ),
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'kursy' ),
 		'supports'            => false,
@@ -195,7 +193,6 @@ function register_custom_post_types() {
 		'not_found_in_trash'  => __( 'Nie znaleziono żadnych rodzajów w koszu.', 'text_domain' )
 	);
 	$args = array(
-		'label'               => __( 'type', 'text_domain' ),
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'rodzaje-kursów' ),
 		'supports'            => array( 'title', 'editor', 'thumbnail' ),
@@ -221,7 +218,6 @@ function register_custom_post_types() {
 		'not_found_in_trash'  => __( 'Nie znaleziono żadnych poziomów w koszu.', 'text_domain' )
 	);
 	$args = array(
-		'label'               => __( 'level', 'text_domain' ),
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'poziomy-kursów' ),
 		'supports'            => array( 'title', 'editor' ),
@@ -247,7 +243,6 @@ function register_custom_post_types() {
 		'not_found_in_trash'  => __( 'Nie znaleziono żadnych karnetów w koszu.', 'text_domain' )
 	);
 	$args = array(
-		'label'               => __( 'package', 'text_domain' ),
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'karnety' ),
 		'supports'            => array( 'title', 'editor', 'thumbnail'),
@@ -273,7 +268,6 @@ function register_custom_post_types() {
 		'not_found_in_trash'  => __( 'Nie znaleziono żadnych partnerów w koszu.', 'text_domain' )
 	);
 	$args = array(
-		'label'               => __( 'partner', 'text_domain' ),
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'partnerzy' ),
 		'supports'            => array( 'title', 'thumbnail'),
@@ -284,6 +278,31 @@ function register_custom_post_types() {
 		'menu_icon'           => 'dashicons-groups'
 	);
 	register_post_type( 'partner', $args );
+
+	$labels = array(
+		'name'                => _x( 'Elementy stopki', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Element', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Stopka', 'text_domain' ),
+		'all_items'           => __( 'Wszystkie elementy', 'text_domain' ),
+		'view_item'           => __( 'Zobacz', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nowy element', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nowy', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj element', 'text_domain' ),
+		'search_items'        => __( 'Szukaj elementu', 'text_domain' ),
+		'not_found'           => __( 'Nie znaleziono żadnych elementów.', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nie znaleziono żadnych elementów w koszu.', 'text_domain' )
+	);
+	$args = array(
+		'labels'              => $labels,
+		'rewrite'			  => array( 'slug' => 'stopka' ),
+		'supports'            => array( 'title', 'editor'),
+		'public'              => true,
+		'show_in_menu'        => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-media-text'
+	);
+	register_post_type( 'footer-item', $args );
 }
 
 if(function_exists("register_field_group"))

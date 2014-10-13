@@ -12,20 +12,19 @@
 
 	<footer class="footer" role="contentinfo">
 		<div class="footer-inner">
-			<section class="footer-item">
-				<h1 class="footer-item-title">Godziny otwarcia</h1>
-				<span class="footer-item-content">STUDIO TAŃCA SALSA SIEMPRE jest otwarte przez cały okres wakacji!!!
-				</span>
-			</section><section class="footer-item">
-				<h1 class="footer-item-title">Dane kontaktowe</h1>
-				<span class="footer-item-content">Rafał Rosiak
-					ul. Dominikańska 7A
-					61-762 Poznań
-					tel. +48 501 297 377
-					tel. +48 537 733 077
-					rafal@salsasiempre.pl
-				</span>
-			</section><section class="footer-item">
+			<?php $footer_items = array(
+				'post_type' => 'footer-item'
+			);
+			query_posts($footer_items);
+			if (have_posts()) { ?>
+				<?php while (have_posts()) { the_post();
+				?><section class="footer-item">
+					<h1 class="footer-item-title"><?php the_title(); ?></h1>
+					<?php the_content(); ?>
+				</section><?php
+				} ?>
+			<?php }
+			?><section class="footer-item">
 				<h1 class="footer-item-title">Social media</h1>
 				<ul class="footer-item-media-items">
 					<li class="footer-item-media-item footer-item-media-item-fb">
@@ -55,10 +54,13 @@
 				<section class="footer-item-partners">
 					<h1 class="footer-item-title footer-item-partners-title">Partnerzy</h1>
 					<ul class="footer-item-partners-items">
-						<?php echo "<!--";
-						while (have_posts()) { the_post();
-							get_template_part("partner");
-						} echo "-->"; ?>
+						<?php while (have_posts()) { the_post();
+							?><li class="footer-item-partners-item">
+								<a href="<?php the_field("link"); ?>">
+									<?php the_post_thumbnail("partner-image", array("alt" => get_the_title())); ?>
+								</a>
+							</li><?php
+						} ?>
 					</ul>
 				</section>
 			<?php } ?>
