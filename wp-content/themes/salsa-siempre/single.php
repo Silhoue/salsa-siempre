@@ -9,26 +9,26 @@
 <?php get_header(); ?>
 
 <main role="main">
-<?php while ( have_posts() ) : the_post(); ?>
+<?php while (have_posts()) { the_post(); ?>
 
 	<?php if (get_the_post_thumbnail()) {
 		the_post_thumbnail("news-image", array("class" => "post-image", "alt" => ""));
 	} ?>
 
-	<article id="post-<?php the_ID(); ?>" class="post" <?php post_class(); ?>>
+	<article class="post">
 		<header class="post-header">
 			<h1 class="post-title"><?php the_title(); ?></h1>
-			<?php if ( get_field("data_od") ): ?>
-			<span class="post-detail">Data: <span class="post-detail-value"><?php the_field("data_od");
-				if ( get_field("data_do") ): ?>&nbsp;-&nbsp;<?php the_field("data_do"); endif; ?></span></span>
-			<?php endif; ?>
-			<?php if ( get_field("godzina_od") ): ?>
-			<span class="post-detail">Godzina: <span class="post-detail-value"><?php the_field("godzina_od");
-				if ( get_field("godzina_do") ): ?>&nbsp;-&nbsp;<?php the_field("godzina_do"); endif; ?></span></span>
-			<?php endif; ?>
-			<?php if ( get_field("miejsce") ): ?>
-			<span class="post-detail">Miejsce:&nbsp;<span class="post-detail-value"><?php the_field("miejsce"); ?></span></span>
-			<?php endif; ?>
+			<?php if (get_field("start_date")) { ?>
+			<span class="post-detail">Data: <span class="post-detail-value"><?php the_field("start_date");
+				if (get_field("end_date")) { ?>&nbsp;-&nbsp;<?php the_field("end_date"); } ?></span></span>
+			<?php }
+			if (get_field("start_time")) { ?>
+			<span class="post-detail">Godzina: <span class="post-detail-value"><?php the_field("start_time");
+				if (get_field("end_time")) { ?>&nbsp;-&nbsp;<?php the_field("end_time"); } ?></span></span>
+			<?php }
+			if (get_field("place")) { ?>
+			<span class="post-detail">Miejsce:&nbsp;<span class="post-detail-value"><?php the_field("place"); ?></span></span>
+			<?php } ?>
 		</header>
 
 		<div class="post-content">
@@ -36,7 +36,7 @@
 		</div>
 	</article>
 
-<?php endwhile; ?>
+<?php } ?>
 </main>
 
 <?php get_footer(); ?>

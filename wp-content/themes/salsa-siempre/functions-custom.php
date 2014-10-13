@@ -470,6 +470,153 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 	register_field_group(array (
+		'id' => 'acf_hide-page-editor',
+		'title' => 'Hide page editor',
+		'fields' => array (
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'teachers.php',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'types.php',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'the_content',
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_hide-page-icon',
+		'title' => 'Hide page icon',
+		'fields' => array (
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'contact.php',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'teachers.php',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'timetable.php',
+					'order_no' => 0,
+					'group_no' => 2,
+				),
+			),
+			array (
+				array (
+					'param' => 'page_template',
+					'operator' => '==',
+					'value' => 'types.php',
+					'order_no' => 0,
+					'group_no' => 3,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'featured_image',
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_hide-permalink',
+		'title' => 'Hide permalink',
+		'fields' => array (
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'type',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'level',
+					'order_no' => 0,
+					'group_no' => 1,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'package',
+					'order_no' => 0,
+					'group_no' => 2,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'partner',
+					'order_no' => 0,
+					'group_no' => 3,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'footer-item',
+					'order_no' => 0,
+					'group_no' => 4,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'permalink',
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
 		'id' => 'acf_level',
 		'title' => 'Level',
 		'fields' => array (
@@ -510,7 +657,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_540237ad0917b',
 				'label' => 'Data rozpoczęcia',
-				'name' => 'data_od',
+				'name' => 'start_date',
 				'type' => 'date_picker',
 				'date_format' => 'dd.mm',
 				'display_format' => 'dd.mm.yy',
@@ -519,7 +666,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5402384d0917e',
 				'label' => 'Data zakończenia',
-				'name' => 'data_do',
+				'name' => 'end_date',
 				'type' => 'date_picker',
 				'date_format' => 'dd.mm',
 				'display_format' => 'dd.mm.yy',
@@ -528,7 +675,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5402795f28caf',
 				'label' => 'Godzina rozpoczęcia',
-				'name' => 'godzina_od',
+				'name' => 'start_time',
 				'type' => 'date_time_picker',
 				'show_date' => 'false',
 				'date_format' => 'm/d/y',
@@ -541,7 +688,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_54027a69e1e07',
 				'label' => 'Godzina zakończenia',
-				'name' => 'godzina_do',
+				'name' => 'end_time',
 				'type' => 'date_time_picker',
 				'show_date' => 'false',
 				'date_format' => 'm/d/y',
@@ -554,7 +701,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5402384b0917d',
 				'label' => 'Miejsce',
-				'name' => 'miejsce',
+				'name' => 'place',
 				'type' => 'text',
 				'default_value' => 'Studio Tańca Salsa Siempre',
 				'placeholder' => '',
@@ -675,48 +822,13 @@ if(function_exists("register_field_group"))
 		'menu_order' => 0,
 	));
 	register_field_group(array (
-		'id' => 'acf_static-pages-hide-only',
-		'title' => 'Static pages (hide only)',
-		'fields' => array (
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'page_template',
-					'operator' => '==',
-					'value' => 'teachers.php',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-			array (
-				array (
-					'param' => 'page_template',
-					'operator' => '==',
-					'value' => 'types.php',
-					'order_no' => 0,
-					'group_no' => 1,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-				0 => 'the_content',
-				1 => 'featured_image',
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
 		'id' => 'acf_teacher',
 		'title' => 'Teacher',
 		'fields' => array (
 			array (
 				'key' => 'field_5414aff457e9b',
 				'label' => 'Imię',
-				'name' => 'imię',
+				'name' => 'name',
 				'type' => 'text',
 				'instructions' => 'Zostanie użyte w grafiku',
 				'required' => 1,
@@ -736,7 +848,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5414b16f57e9e',
 				'label' => 'Nazwa',
-				'name' => 'nazwa_umiejętności_1',
+				'name' => 'skill_1',
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',
@@ -748,7 +860,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5414b5a9476c2',
 				'label' => 'Liczba gwiazdek',
-				'name' => 'liczba_gwiazdek_1',
+				'name' => 'rating_1',
 				'type' => 'number',
 				'instructions' => 'od 1 do 6',
 				'default_value' => '',
@@ -768,7 +880,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5414b40ece33e',
 				'label' => 'Nazwa',
-				'name' => 'nazwa_umiejętności_2',
+				'name' => 'skill_2',
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',
@@ -780,7 +892,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5414b59d476c1',
 				'label' => 'Liczba gwiazdek',
-				'name' => 'liczba_gwiazdek_2',
+				'name' => 'rating_2',
 				'type' => 'number',
 				'instructions' => 'od 1 do 6',
 				'default_value' => '',
@@ -800,7 +912,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5414b468ce340',
 				'label' => 'Nazwa',
-				'name' => 'nazwa_umiejętności_3',
+				'name' => 'skill_3',
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',
@@ -812,7 +924,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5414b58c476c0',
 				'label' => 'Liczba gwiazdek',
-				'name' => 'liczba_gwiazdek_3',
+				'name' => 'rating_3',
 				'type' => 'number',
 				'instructions' => 'od 1 do 6',
 				'default_value' => '',
@@ -832,7 +944,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5414b4a2ce343',
 				'label' => 'Nazwa',
-				'name' => 'nazwa_umiejętności_4',
+				'name' => 'skill_4',
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',
@@ -844,7 +956,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5414b542ce347',
 				'label' => 'Liczba gwiazdek',
-				'name' => 'liczba_gwiazdek_4',
+				'name' => 'rating_4',
 				'type' => 'number',
 				'instructions' => 'od 1 do 6',
 				'default_value' => '',
@@ -864,7 +976,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5414b4fcce345',
 				'label' => 'Nazwa',
-				'name' => 'nazwa_umiejętności_5',
+				'name' => 'rating_5',
 				'type' => 'text',
 				'default_value' => '',
 				'placeholder' => '',
@@ -876,7 +988,7 @@ if(function_exists("register_field_group"))
 			array (
 				'key' => 'field_5414b509ce346',
 				'label' => 'Liczba gwiazdek',
-				'name' => 'liczba_gwiazdek_5',
+				'name' => 'rating_5',
 				'type' => 'number',
 				'instructions' => 'od 1 do 6',
 				'default_value' => '',
@@ -903,32 +1015,6 @@ if(function_exists("register_field_group"))
 			'position' => 'acf_after_title',
 			'layout' => 'no_box',
 			'hide_on_screen' => array (
-			),
-		),
-		'menu_order' => 0,
-	));
-	register_field_group(array (
-		'id' => 'acf_type-hide-only',
-		'title' => 'Type (hide only)',
-		'fields' => array (
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'type',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-				0 => 'permalink',
-				1 => 'slug',
 			),
 		),
 		'menu_order' => 0,
