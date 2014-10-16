@@ -128,33 +128,6 @@ function orderby_related_post_title( $orderby_statement ) {
 add_action( 'init', 'register_custom_post_types', 0 );
 function register_custom_post_types() {
 	$labels = array(
-		'name'                => _x( 'Instruktorzy', 'Post Type General Name', 'text_domain' ),
-		'singular_name'       => _x( 'Intruktor', 'Post Type Singular Name', 'text_domain' ),
-		'menu_name'           => __( 'Instruktorzy', 'text_domain' ),
-//		'parent_item_colon'   => __( 'Parent Item:', 'text_domain' ),
-		'all_items'           => __( 'Wszyscy instruktorzy', 'text_domain' ),
-		'view_item'           => __( 'Zobacz', 'text_domain' ),
-		'add_new_item'        => __( 'Dodaj nowego instruktora', 'text_domain' ),
-		'add_new'             => __( 'Dodaj nowego', 'text_domain' ),
-		'edit_item'           => __( 'Edytuj instruktora', 'text_domain' ),
-//		'update_item'         => __( 'Update Item', 'text_domain' ),
-		'search_items'        => __( 'Szukaj instruktora', 'text_domain' ),
-		'not_found'           => __( 'Nie znaleziono żadnych instruktorów.', 'text_domain' ),
-		'not_found_in_trash'  => __( 'Nie znaleziono żadnych instruktorów w koszu.', 'text_domain' )
-	);
-	$args = array(
-		'labels'              => $labels,
-		'rewrite'			  => array( 'slug' => 'instruktorzy' ),
-		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions' ),
-		'public'              => true,
-		'show_in_menu'        => true,
-		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
-		'menu_icon'           => 'dashicons-universal-access'
-	);
-	register_post_type( 'teacher', $args );
-
-	$labels = array(
 		'name'                => _x( 'Kursy', 'Post Type General Name', 'text_domain' ),
 		'singular_name'       => _x( 'Kurs', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'           => __( 'Kursy', 'text_domain' ),
@@ -174,7 +147,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
+		'menu_position'       => 6,
 		'menu_icon'           => 'dashicons-calendar'
 	);
 	register_post_type( 'class', $args );
@@ -199,7 +172,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
+		'menu_position'       => 7,
 		'menu_icon'           => 'dashicons-screenoptions'
 	);
 	register_post_type( 'type', $args );
@@ -224,7 +197,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
+		'menu_position'       => 8,
 		'menu_icon'           => 'dashicons-chart-bar'
 	);
 	register_post_type( 'level', $args );
@@ -249,10 +222,37 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
+		'menu_position'       => 9,
 		'menu_icon'           => 'dashicons-images-alt'
 	);
 	register_post_type( 'package', $args );
+
+	$labels = array(
+		'name'                => _x( 'Instruktorzy', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Intruktor', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Instruktorzy', 'text_domain' ),
+//		'parent_item_colon'   => __( 'Parent Item:', 'text_domain' ),
+		'all_items'           => __( 'Wszyscy instruktorzy', 'text_domain' ),
+		'view_item'           => __( 'Zobacz', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nowego instruktora', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nowego', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj instruktora', 'text_domain' ),
+//		'update_item'         => __( 'Update Item', 'text_domain' ),
+		'search_items'        => __( 'Szukaj instruktora', 'text_domain' ),
+		'not_found'           => __( 'Nie znaleziono żadnych instruktorów.', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nie znaleziono żadnych instruktorów w koszu.', 'text_domain' )
+	);
+	$args = array(
+		'labels'              => $labels,
+		'rewrite'			  => array( 'slug' => 'instruktorzy' ),
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+		'public'              => true,
+		'show_in_menu'        => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 11,
+		'menu_icon'           => 'dashicons-universal-access'
+	);
+	register_post_type( 'teacher', $args );
 
 	$labels = array(
 		'name'                => _x( 'Partnerzy', 'Post Type General Name', 'text_domain' ),
@@ -274,7 +274,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
+		'menu_position'       => 12,
 		'menu_icon'           => 'dashicons-groups'
 	);
 	register_post_type( 'partner', $args );
@@ -299,7 +299,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 5,
+		'menu_position'       => 14,
 		'menu_icon'           => 'dashicons-media-text'
 	);
 	register_post_type( 'footer-item', $args );
@@ -1021,23 +1021,35 @@ if(function_exists("register_field_group"))
 	));
 }
 
-// add_action( 'admin_menu', 'remove_menus', 999 );
-function remove_menus() {
+add_action('admin_menu', 'remove_menus', 999);
+function remove_menus () {
+	global $menu;
+	$menu[65] = $menu[10]; // Media
+	unset($menu[10]);
 	remove_menu_page('edit-comments.php');
 	remove_menu_page('themes.php');
 	remove_menu_page('plugins.php');
-	remove_menu_page('tools.php');
 	remove_menu_page('edit.php?post_type=acf');
-	remove_menu_page('admin.php?page=bws_plugins');
+	remove_menu_page('bws_plugins');
+	remove_menu_page('tools.php');
+	add_menu_page('Menu', 'Menu', 'manage_options', 'nav-menus.php', '', 'dashicons-menu', 13);
+	add_menu_page('Export', 'Export', 'manage_options', 'export.php', '', 'dashicons-download', 90);
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
-	remove_submenu_page('edit.php', 'post-new.php');
-	remove_submenu_page('edit.php', 'edit.php');
-	remove_submenu_page('upload.php', 'upload.php');
-	remove_submenu_page('upload.php', 'media-new.php');
-	remove_submenu_page('edit.php?post_type=page', 'edit.php?post_type=page');
-	remove_submenu_page('edit.php?post_type=page', 'post-new.php?post_type=page');
-	remove_submenu_page('users.php', 'user-new.php');
+	remove_submenu_page('options-general.php', 'options-writing.php');
+	remove_submenu_page('options-general.php', 'options-discussion.php');
+	remove_submenu_page('options-general.php', 'options-media.php');
+	remove_submenu_page('options-general.php', 'options-permalink.php');
+}
+
+add_action('wp_before_admin_bar_render', 'remove_admin_bar_links');
+function remove_admin_bar_links () {
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('wp-logo');
+    $wp_admin_bar->remove_menu('dashboard');
+    $wp_admin_bar->remove_menu('appearance');
+    $wp_admin_bar->remove_menu('view-site');
+    $wp_admin_bar->remove_menu('comments');
 }
 
 ?>
