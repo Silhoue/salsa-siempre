@@ -92,10 +92,6 @@ get_header(); ?>
 
 			<?php salsa_siempre_paging_nav(); ?>
 
-		<?php else : ?>
-
-			<?php get_template_part( 'content', 'none' ); ?>
-
 		<?php endif; ?>
 
 		</main><!-- #main -->

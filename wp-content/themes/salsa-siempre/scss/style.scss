@@ -24,11 +24,18 @@ body {
 	max-width: 1230px;
 	margin: 0 auto;
 	padding: 0 1.5em;
+	overflow: auto; // prevent margins collapsing
 }
 
 .page-title {
 	font-size: 2em;
-	margin: 0 0 1.5em 0.75em;
+	margin: 0 0.75em 1.5em;
 	padding-left: 0.7em;
 	border-left: 0.35em solid $pink;
+}
+
+.page-message {
+	font-size: 1.5em;
+	padding: 0 1em;
+	margin-bottom: 2em;
 }

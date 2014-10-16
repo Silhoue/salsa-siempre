@@ -15,15 +15,13 @@
 		);
 		query_posts($teachers);
 	?>
-	<?php if ( have_posts() ) :
+	<?php if ( have_posts() ) {
 		echo "<!--";
-		while ( have_posts() ) : the_post();
+		while ( have_posts() ) { the_post();
 			get_template_part("teachers-item");
-		endwhile;
+		}
 		echo "-->";
-	else :
-		get_template_part("content", "none");
-	endif; ?>
+	} ?>
 </main>
 
 <?php get_footer(); ?>

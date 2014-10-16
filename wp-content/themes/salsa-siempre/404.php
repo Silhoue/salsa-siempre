@@ -9,14 +9,10 @@
 <?php get_header(); ?>
 
 <main role="main">
-	<article class="post">
-		<header class="post-header">
-			<h1 class="post-title">404</h1>
-		</header>
-		<div class="post-content">
-			Strona nie została odnaleziona
-		</div>
-	</article>
+	<h1 class="page-title">404</h1>
+	<p class="page-message">
+		Strona nie została odnaleziona.
+	</p>
 </main>
 
 <?php get_footer(); ?>

@@ -22,7 +22,9 @@
 		}
 		echo "-->";
 	} else { ?>
-		Brak aktualności
+		<p class="page-message">
+			Brak aktualności.
+		</p>
 	<?php } ?>
 </main>
 
