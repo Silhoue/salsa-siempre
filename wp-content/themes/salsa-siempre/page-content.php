@@ -5,7 +5,7 @@
 ?>
 <div>
 	<?php if (get_the_post_thumbnail()) {
-		the_post_thumbnail("news-image", array("class" => "post-image", "alt" => ""));
+		the_post_thumbnail("large", array("class" => "post-image", "alt" => ""));
 	} ?>
 
 	<article class="post">

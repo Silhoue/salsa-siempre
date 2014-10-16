@@ -10,7 +10,7 @@
 <?php while (have_posts()) { the_post();
 
 	if (get_the_post_thumbnail()) {
-		the_post_thumbnail("teacher-image", array("class" => "post-image teacher-image", "alt" => ""));
+		the_post_thumbnail("full", array("class" => "post-image teacher-image", "alt" => ""));
 	} ?>
 
 	<article class="post">

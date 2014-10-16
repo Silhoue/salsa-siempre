@@ -8,7 +8,7 @@
 	<a href="<?php esc_url(the_permalink()); ?>" rel="bookmark">
 		<?php if (get_the_post_thumbnail()) { ?>
 		<div class="news-item-image-wrapper">
-			<?php the_post_thumbnail("news-item-image", array("class" => "news-item-image", "alt" => "")); ?>
+			<?php the_post_thumbnail("medium", array("class" => "news-item-image", "alt" => "")); ?>
 		</div>
 		<?php } ?>
 		<div class="news-item-caption">

@@ -1,9 +1,17 @@
 <?php
-add_image_size("news-item-image", 370, 240, true);
-add_image_size("news-image", 470, 305, true);
 add_image_size("teachers-item-image", 370, 490, true);
-add_image_size("teacher-image", 470, 490, true);
-add_image_size("partner-image", 170, 120, true);
+
+if (false === get_option("medium_crop")) {
+    add_option("medium_crop", "1");
+} else {
+    update_option("medium_crop", "1");
+}
+
+if (false === get_option("large_crop")) {
+    add_option("large_crop", "1");
+} else {
+    update_option("large_crop", "1");
+}
 
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10);
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10);
@@ -1033,7 +1041,7 @@ function remove_menus () {
 	remove_menu_page('bws_plugins');
 	remove_menu_page('tools.php');
 	add_menu_page('Menu', 'Menu', 'manage_options', 'nav-menus.php', '', 'dashicons-menu', 13);
-	add_menu_page('Export', 'Export', 'manage_options', 'export.php', '', 'dashicons-download', 90);
+	add_menu_page('Eksport', 'Eksport', 'manage_options', 'export.php', '', 'dashicons-download', 90);
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
 	remove_submenu_page('options-general.php', 'options-writing.php');

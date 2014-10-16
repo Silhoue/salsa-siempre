@@ -57,7 +57,7 @@
 						<?php while (have_posts()) { the_post();
 							?><li class="footer-item-partners-item">
 								<a href="<?php the_field("link"); ?>">
-									<?php the_post_thumbnail("partner-image", array("alt" => get_the_title())); ?>
+									<?php the_post_thumbnail("thumbnail", array("alt" => get_the_title())); ?>
 								</a>
 							</li><?php
 						} ?>

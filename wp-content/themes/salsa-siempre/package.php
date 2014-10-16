@@ -6,7 +6,7 @@
 
 --><section class="package">
 	<?php if (get_the_post_thumbnail())  { ?>
-		<?php the_post_thumbnail("news-item-image", array("class" => "news-item-image", "alt" => "")); ?>
+		<?php the_post_thumbnail("medium", array("class" => "news-item-image", "alt" => "")); ?>
 	<?php } ?>
 	<div class="package-caption">
 		<h2 class="package-title"><?php the_title(); ?><!--
