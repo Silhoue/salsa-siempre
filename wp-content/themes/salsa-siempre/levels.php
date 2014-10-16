@@ -12,7 +12,8 @@
 	<?php }
 
 	$types = array(
-		'post_type' => 'level'
+		'post_type' => 'level',
+		'order' => 'asc'
 	);
 	query_posts($types);
 	while (have_posts()) { the_post();
