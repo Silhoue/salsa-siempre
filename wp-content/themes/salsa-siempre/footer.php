@@ -28,7 +28,7 @@
 				<h1 class="footer-item-title">Social media</h1>
 				<ul class="footer-item-media-items">
 					<li class="footer-item-media-item footer-item-media-item-fb">
-						<a href="https://www.facebook.com/salsa.siempre.9"></a>
+						<a href="https://www.facebook.com/stsalsasiempre"></a>
 					</li
 					><li class="footer-item-media-item footer-item-media-item-gp">
 						<a href="https://plus.google.com/+salsasiemprepltaniec"></a>
