@@ -151,7 +151,7 @@ function register_custom_post_types() {
 	$args = array(
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'kursy' ),
-		'supports'            => false,
+		'supports'            => array( 'editor', 'thumbnail', 'revisions' ),
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
@@ -176,7 +176,7 @@ function register_custom_post_types() {
 	$args = array(
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'rodzaje-kursów' ),
-		'supports'            => array( 'title', 'editor', 'thumbnail' ),
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions' ),
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
@@ -201,7 +201,7 @@ function register_custom_post_types() {
 	$args = array(
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'poziomy-kursów' ),
-		'supports'            => array( 'title', 'editor' ),
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions' ),
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
@@ -226,7 +226,7 @@ function register_custom_post_types() {
 	$args = array(
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'karnety' ),
-		'supports'            => array( 'title', 'editor', 'thumbnail'),
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions'),
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
@@ -278,7 +278,7 @@ function register_custom_post_types() {
 	$args = array(
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'partnerzy' ),
-		'supports'            => array( 'title', 'thumbnail'),
+		'supports'            => array( 'title', 'thumbnail', 'revisions'),
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
@@ -303,7 +303,7 @@ function register_custom_post_types() {
 	$args = array(
 		'labels'              => $labels,
 		'rewrite'			  => array( 'slug' => 'stopka' ),
-		'supports'            => array( 'title', 'editor'),
+		'supports'            => array( 'title', 'editor', 'revisions'),
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
