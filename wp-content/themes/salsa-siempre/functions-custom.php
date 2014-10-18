@@ -162,7 +162,7 @@ function register_custom_post_types() {
 
 	$labels = array(
 		'name'                => _x( 'Rodzaje kursów', 'Post Type General Name', 'text_domain' ),
-		'singular_name'       => _x( 'Rodzaj', 'Post Type Singular Name', 'text_domain' ),
+		'singular_name'       => _x( 'Rodzaj kursu', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'           => __( 'Rodzaje kursów', 'text_domain' ),
 		'all_items'           => __( 'Wszystkie rodzaje', 'text_domain' ),
 		'view_item'           => __( 'Zobacz', 'text_domain' ),
@@ -187,7 +187,7 @@ function register_custom_post_types() {
 
 	$labels = array(
 		'name'                => _x( 'Poziomy kursów', 'Post Type General Name', 'text_domain' ),
-		'singular_name'       => _x( 'Poziom', 'Post Type Singular Name', 'text_domain' ),
+		'singular_name'       => _x( 'Poziom kursu', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'           => __( 'Poziomy kursów', 'text_domain' ),
 		'all_items'           => __( 'Wszystkie poziomy', 'text_domain' ),
 		'view_item'           => __( 'Zobacz', 'text_domain' ),
@@ -236,6 +236,31 @@ function register_custom_post_types() {
 	register_post_type( 'package', $args );
 
 	$labels = array(
+		'name'                => _x( 'Oferty specjalne', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Oferta specjalna', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Oferty specjalne', 'text_domain' ),
+		'all_items'           => __( 'Wszystkie oferty', 'text_domain' ),
+		'view_item'           => __( 'Zobacz', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nową ofertę', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nową', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj ofertę', 'text_domain' ),
+		'search_items'        => __( 'Szukaj oferty', 'text_domain' ),
+		'not_found'           => __( 'Nie znaleziono żadnych ofert.', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nie znaleziono żadnych ofert w koszu.', 'text_domain' )
+	);
+	$args = array(
+		'labels'              => $labels,
+		'rewrite'			  => array( 'slug' => 'oferty-specjalne' ),
+		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions'),
+		'public'              => true,
+		'show_in_menu'        => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 11,
+		'menu_icon'           => 'dashicons-star-filled'
+	);
+	register_post_type( 'special-offer', $args );
+
+	$labels = array(
 		'name'                => _x( 'Instruktorzy', 'Post Type General Name', 'text_domain' ),
 		'singular_name'       => _x( 'Intruktor', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'           => __( 'Instruktorzy', 'text_domain' ),
@@ -257,7 +282,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 11,
+		'menu_position'       => 12,
 		'menu_icon'           => 'dashicons-universal-access'
 	);
 	register_post_type( 'teacher', $args );
@@ -282,7 +307,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 12,
+		'menu_position'       => 13,
 		'menu_icon'           => 'dashicons-groups'
 	);
 	register_post_type( 'partner', $args );
@@ -307,7 +332,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 14,
+		'menu_position'       => 15,
 		'menu_icon'           => 'dashicons-media-text'
 	);
 	register_post_type( 'footer-item', $args );
@@ -630,6 +655,15 @@ if(function_exists("register_field_group"))
 					'value' => 'footer-item',
 					'order_no' => 0,
 					'group_no' => 4,
+				),
+			),
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'special-offer',
+					'order_no' => 0,
+					'group_no' => 5,
 				),
 			),
 		),
@@ -1058,7 +1092,7 @@ function remove_menus () {
 	remove_menu_page('edit.php?post_type=acf');
 	remove_menu_page('bws_plugins');
 	remove_menu_page('tools.php');
-	add_menu_page('Menu', 'Menu', 'manage_options', 'nav-menus.php', '', 'dashicons-menu', 13);
+	add_menu_page('Menu', 'Menu', 'manage_options', 'nav-menus.php', '', 'dashicons-menu', 14);
 	add_menu_page('Eksport', 'Eksport', 'manage_options', 'export.php', '', 'dashicons-download', 90);
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');

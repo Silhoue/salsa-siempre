@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/4.0" created="2014-10-16 23:33" -->
+<!-- generator="WordPress/4.0" created="2014-10-18 12:55" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.1/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>Salsa Siempre</title>
 	<link>http://siempre.localhost</link>
 	<description>Kolejna witryna oparta na WordPressie</description>
-	<pubDate>Thu, 16 Oct 2014 23:33:52 +0000</pubDate>
+	<pubDate>Sat, 18 Oct 2014 12:55:35 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.1</wp:wxr_version>
 	<wp:base_site_url>http://siempre.localhost</wp:base_site_url>
@@ -335,6 +335,10 @@
 		<wp:postmeta>
 			<wp:meta_key>rule</wp:meta_key>
 			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:11:"footer-item";s:8:"order_no";i:0;s:8:"group_no";i:4;}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>rule</wp:meta_key>
+			<wp:meta_value><![CDATA[a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:13:"special-offer";s:8:"order_no";i:0;s:8:"group_no";i:5;}]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 	<item>
