@@ -64,7 +64,7 @@
 							<?php echo $studios[$studio]; ?>
 						</h3>
 					<?php }	?>
-					<a class="timetable-class"
+					<a class="timetable-class <?php if (get_field("is_new")) { echo "class-new"; } ?>"
 					   href="<?php esc_url(the_permalink()); ?>"
 					   style="background-color:<?php echo get_field('level')->color ?>">
 						<span class="timetable-class-title"><?php echo $type.' '.$level ?></span>

@@ -26,6 +26,17 @@
 .post-title {
 	margin: 0 0 0.5em;
 	font-size: 2em;
+	.class-new &:after {
+		content: "NOWY";
+		color: #fff;
+		background-color: $yellow;
+		font-size: 0.6em;
+		font-weight: normal;
+		display: inline-block;
+		vertical-align: middle;
+		padding: 0 0.4em;
+		margin: 0 0 0.4em 0.5em;
+	}
 }
 
 .post-detail {

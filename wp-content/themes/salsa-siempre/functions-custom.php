@@ -349,7 +349,7 @@ if(function_exists("register_field_group"))
 				'label' => 'Nowy',
 				'name' => 'is_new',
 				'type' => 'true_false',
-				'instructions' => 'nowe kursy będą widoczne w kolumnie "Nowe kursy" na stronie głównej',
+				'instructions' => 'nowe kursy będą widoczne w kolumnie "Nowe kursy" na stronie głównej, zostaną także odpowiednio oznaczone w grafiku i na stronie kursu',
 				'message' => 'Nowy kurs',
 				'default_value' => 0,
 			),
