@@ -464,8 +464,8 @@ if(function_exists("register_field_group"))
 				'label' => 'Data rozpoczęcia',
 				'name' => 'start_date',
 				'type' => 'date_picker',
-				'date_format' => 'dd.mm',
-				'display_format' => 'dd/mm/yy',
+				'date_format' => 'dd.mm.yy',
+				'display_format' => 'dd.mm.yy',
 				'first_day' => 1,
 			),
 			array (

@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress/4.0" created="2014-10-18 12:55" -->
+<!-- generator="WordPress/4.0" created="2014-10-18 14:22" -->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.1/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>Salsa Siempre</title>
 	<link>http://siempre.localhost</link>
 	<description>Kolejna witryna oparta na WordPressie</description>
-	<pubDate>Sat, 18 Oct 2014 12:55:35 +0000</pubDate>
+	<pubDate>Sat, 18 Oct 2014 14:22:21 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.1</wp:wxr_version>
 	<wp:base_site_url>http://siempre.localhost</wp:base_site_url>
@@ -400,7 +400,7 @@
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_541604e122745</wp:meta_key>
-			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_541604e122745";s:5:"label";s:17:"Data rozpoczęcia";s:4:"name";s:10:"start_date";s:4:"type";s:11:"date_picker";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"date_format";s:5:"dd.mm";s:14:"display_format";s:8:"dd/mm/yy";s:9:"first_day";s:1:"1";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5416269207a8c";s:8:"operator";s:2:"==";s:5:"value";s:1:"1";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:8;}]]></wp:meta_value>
+			<wp:meta_value><![CDATA[a:11:{s:3:"key";s:19:"field_541604e122745";s:5:"label";s:17:"Data rozpoczęcia";s:4:"name";s:10:"start_date";s:4:"type";s:11:"date_picker";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:11:"date_format";s:8:"dd.mm.yy";s:14:"display_format";s:8:"dd.mm.yy";s:9:"first_day";s:1:"1";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_5416269207a8c";s:8:"operator";s:2:"==";s:5:"value";s:1:"1";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:8;}]]></wp:meta_value>
 		</wp:postmeta>
 		<wp:postmeta>
 			<wp:meta_key>field_541605b29f616</wp:meta_key>

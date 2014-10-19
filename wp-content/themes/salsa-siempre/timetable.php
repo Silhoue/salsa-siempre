@@ -48,7 +48,7 @@
 		<?php the_post();
 		$days_of_week = array('Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela');
 		$studios = array('Sala 1', 'Sala 2');
-		for ($day_of_week = 0;$day_of_week < 7; $day_of_week++) { $studio = -1; ?>
+		for ($day_of_week = 0; $day_of_week < 7; $day_of_week++) { $studio = -1; ?>
 			<section class="timetable-day">
 				<h2 class="timetable-day-title">
 					<?php echo $days_of_week[$day_of_week]; ?>
@@ -64,28 +64,32 @@
 							<?php echo $studios[$studio]; ?>
 						</h3>
 					<?php }	?>
-					<div class="timetable-class" style="background-color:<?php echo get_field('level')->color?>">
+					<a class="timetable-class"
+					   href="<?php esc_url(the_permalink()); ?>"
+					   style="background-color:<?php echo get_field('level')->color ?>">
 						<span class="timetable-class-title"><?php echo $type.' '.$level ?></span>
 						<span class="timetable-class-details">
-							<span><?php echo get_field('teacher_1')->imię;
+							<span><?php echo get_field('teacher_1')->name;
 								if (get_field("teacher_2")) { ?>
-									&amp; <?php echo get_field("teacher_2")->imię;
+									&amp; <?php echo get_field("teacher_2")->name;
 								} ?>
 							</span>
 							<span class="timetable-class-hours">
 								<?php the_field('start_hour'); ?>-<?php the_field('end_hour'); ?>
 							</span>
 						</span>
-					</div>
+					</a>
 					<?php if (!have_posts()) { break; }
 					the_post();
 				} while (get_field('day_of_week') == $day_of_week); ?>
 			</section>
 
 		<?php }
-	} else {
-		get_template_part("content", "none");
-	} ?>
+	} else { ?>
+		<p class="page-message">
+			Brak zajęć.
+		</p>
+	<?php } ?>
 </main>
 
 <?php get_footer(); ?>

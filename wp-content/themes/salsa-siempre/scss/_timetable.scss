@@ -25,11 +25,15 @@ $timetable-font-size: 1.2;
 
 .timetable-class {
 	color: #fff;
+	text-decoration: none;
 	display: inline-block;
 	vertical-align: top;
 	width: 16.6em / $timetable-font-size;
 	padding: 1.4em / $timetable-font-size 1em;
 	margin-bottom: 1px;
+	&:hover, &:focus {
+		color: $yellow;
+	}
 }
 
 .timetable-class-title {

@@ -9,9 +9,9 @@
 <?php get_header(); ?>
 
 <main role="main">
-<?php while (have_posts()) { the_post(); ?>
+<?php while (have_posts()) { the_post();
 
-	<?php if (get_the_post_thumbnail()) {
+	if (get_the_post_thumbnail()) {
 		the_post_thumbnail("large", array("class" => "post-image", "alt" => ""));
 	} ?>
 
