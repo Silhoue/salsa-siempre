@@ -18,11 +18,11 @@
 		)
 	);
 	function timetable_orderby($orderby) {
-		return 'wp_postmeta.meta_value ASC, mt1.meta_value ASC, mt2.meta_value ASC';
+		remove_filter('posts_orderby', 'timetable_orderby');
+		return 'wp_postmeta.meta_value ASC, mt1.meta_value ASC, DATE_FORMAT(FROM_UNIXTIME(mt2.meta_value),"%H%i") ASC';
 	}
 	add_filter('posts_orderby','timetable_orderby');
 	query_posts($classes);
-	remove_filter('posts_orderby','timetable_orderby');
 
 	if ( have_posts() ) {
 
