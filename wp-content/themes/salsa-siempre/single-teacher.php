@@ -17,7 +17,7 @@
 		<header class="post-header">
 			<h1 class="post-title"><?php the_title(); ?></h1>
 			<?php $i = 1;
-			while (get_field("sill_{$i}")) { ?>
+			while (get_field("skill_{$i}")) { ?>
 			<span class="post-detail"><?php the_field("skill_{$i}")?>
 				<span class="post-detail-value teacher-skills-rating">
 				<?php $stars_count = get_field("rating_{$i}");
