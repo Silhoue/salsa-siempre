@@ -9,9 +9,11 @@
 <main role="main">
 <?php while (have_posts()) { the_post();
 
-	if (get_the_post_thumbnail()) {
-		the_post_thumbnail("full", array("class" => "post-image teacher-image", "alt" => ""));
-	} ?>
+	if (get_the_post_thumbnail()) { ?>
+		<div class="post-image-wrapper">
+		<?php the_post_thumbnail("full", array("class" => "post-image", "alt" => "")); ?>
+		</div>
+	<?php } ?>
 
 	<article class="post">
 		<header class="post-header">

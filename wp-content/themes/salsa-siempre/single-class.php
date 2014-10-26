@@ -11,9 +11,11 @@
 	$days_of_week = array('poniedziałki', 'wtorki', 'środy', 'czwartki', 'piątki', 'soboty', 'niedziele');
 	$studios = array('Sala&nbsp1', 'Sala&nbsp2');
 
-	if (get_the_post_thumbnail()) {
-		the_post_thumbnail("large", array("class" => "post-image", "alt" => ""));
-	} ?>
+	if (get_the_post_thumbnail()) { ?>
+		<div class="post-image-wrapper">
+		<?php the_post_thumbnail("large", array("class" => "post-image", "alt" => "")); ?>
+		</div>
+	<?php } ?>
 	<article class="post <?php if (get_field("is_new")) { echo "class-new"; } ?>">
 		<header class="post-header">
 			<h1 class="post-title"><?php echo get_field('type')->post_title." ".get_field('level')->post_title ?></h1>

@@ -7,14 +7,17 @@
 	margin-bottom: 3em;
 }
 
-.post-image {
+.post-image-wrapper {
 	display: inline-block;
 	vertical-align: top;
-	box-sizing: border-box;
+	margin: 0 1.5em 3em;
+}
+
+.post-image {
+	display: block;
 	width: 100%;
 	max-width: 47em;
 	border-bottom: $yellow solid 0.7em;
-	margin: 0 1.5em 3em;
 }
 
 .post-header {
