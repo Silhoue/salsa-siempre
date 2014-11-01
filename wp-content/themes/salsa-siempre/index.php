@@ -14,6 +14,18 @@
 
 <?php get_header(); ?>
 
+<?php $splash = get_page_by_title('Start');
+if ($splash) { ?>
+	<div class="splash" style="background-image: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($splash->ID)); ?>')">
+		<div class="splash-placeholder">
+		</div><div class="splash-content">
+			<img class="splash-logo" src="<?php bloginfo('template_directory'); ?>/img/logo.png" alt="Salsa Siempre"/>
+			<p class="splash-text"><?php echo $splash->post_content; ?></p>
+			<a class="splash-dismiss" href="#" tabindex="2"><?php echo get_field('dismiss', $splash->ID); ?></a>
+		</div>
+	</div>
+<?php } ?>
+
 <main role="main">
 <?php $classes = new WP_Query(array(
 	'post_type' => 'class',
