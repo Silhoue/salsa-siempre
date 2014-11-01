@@ -1,4 +1,4 @@
-/* listing */
+/* news */
 .news-item {
 	display: inline-block;
 	vertical-align: bottom;
@@ -57,4 +57,103 @@
 	line-height: 1.4em;
 	max-height: 1.4em;
 	overflow: hidden;
+}
+
+/* classes */
+.news-classes {
+	float: right;
+	display: inline-block;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 37em + 2*1.5em;
+	padding: 0 1.5em;
+	margin-bottom: 3em;
+	@media (max-width: 829px) {
+		float: none;
+	}
+}
+
+.news-classes-inner {
+	background-color: $light-grey;
+}
+
+.news-classes-title {
+	color: #fff;
+	background-color: $yellow;
+	font-size: 2em;
+	line-height: 2.25em;
+	font-weight: normal;
+	text-align: center;
+	margin: 0;
+}
+
+.news-classes-item {
+	text-decoration: none;
+	display: block;
+	width: 100%;
+	max-width: 37em;
+	position: relative;
+	overflow: hidden;
+	margin-top: 2em;
+}
+
+.news-classes-item-image-wrapper {
+	min-height: 4em;
+}
+
+$duration: 0.4s;
+
+.news-classes-item-overlay-wrapper {
+	color: #fff;
+	position: absolute;
+	top: 100%;
+	width: 100%;
+	height: 100%;
+	transition: $duration;
+	.news-classes-item:hover &,
+	.news-classes-item:focus & {
+		top: 0;
+		transition: $duration;
+	};
+}
+
+.news-classes-item-overlay {
+	background-color: $pink; // IE8 fallback
+	background-color: $rgba-pink;
+	position: relative;
+	top: -4em;
+	height: 100%;
+	padding: 0 2em;
+	transition: $duration;
+	box-sizing: border-box;
+	.news-classes-item:hover &,
+	.news-classes-item:focus & {
+		top: 0;
+		padding: 2em;
+		transition: $duration;
+	};
+}
+
+.news-classes-item-overlay-caption {
+	@extend .news-classes-title;
+	line-height: 2em;
+	position: relative;
+	top: -2em;
+}
+
+.news-classes-item-title {
+	font-size: 2em;
+	line-height: 2em;
+	font-weight: normal;
+	text-align: center;
+	margin: 0;
+	.news-classes-item:hover &,
+	.news-classes-item:focus & {
+		text-align: left;
+	};
+}
+
+.news-classes-item-detail {
+	font-size: 1.4em;
+	display: block;
 }

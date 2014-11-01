@@ -1,4 +1,5 @@
 <?php
+add_image_size("news-classes-item-image", 370, 185, true);
 add_image_size("teachers-item-image", 370, 490, true);
 
 if (false === get_option("medium_crop")) {
