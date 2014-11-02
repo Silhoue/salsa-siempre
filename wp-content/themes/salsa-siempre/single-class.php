@@ -34,6 +34,11 @@
 		<div class="post-content">
 			<?php the_content(); ?>
 		</div>
+
+		<?php $registration = get_page_by_title('Zapisy');
+		if ($registration) { ?>
+			<a class="post-action" href="<?php echo get_page_link($registration->ID) ?>">Zapisz się!</a>
+		<?php } ?>
 	</article>
 
 <?php } ?>

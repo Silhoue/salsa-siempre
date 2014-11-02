@@ -60,3 +60,12 @@
 		width: 100%;
 	}
 }
+
+.post-action {
+	@extend .news-classes-title;
+	font-size: 1.5em;
+	text-decoration: none;
+	display: block;
+	max-width: 10em;
+	margin-top: 1em;
+}
