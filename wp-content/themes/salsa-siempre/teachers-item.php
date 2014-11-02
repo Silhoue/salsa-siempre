@@ -11,8 +11,6 @@
 			<?php the_post_thumbnail("teachers-item-image", array("class" => "news-item-image", "alt" => "")); ?>
 		</div>
 		<?php endif; ?>
-		<div class="teachers-item-caption">
-			<h2 class="teachers-item-title"><?php the_title(); ?></h2>
-		</div>
+		<h2 class="teachers-item-title"><?php the_title(); ?></h2>
 	</a>
 </section><!--
