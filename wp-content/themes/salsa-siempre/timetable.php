@@ -28,7 +28,6 @@
 
 		$levels = new WP_Query(array(
 			'post_type' => 'level',
-			'orderby' => 'title',
 			'order' => 'asc'
 		)); ?>
 		<section class="timetable-levels">
