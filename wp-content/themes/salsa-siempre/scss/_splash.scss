@@ -1,13 +1,19 @@
 .splash {
+	display: none;
 	z-index: 1;
 	text-align: center;
-	background: #fff no-repeat center;
+	background: $dark-grey no-repeat center;
 	background-size: cover;
 	position: fixed;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
+	.splashy & {
+		@media screen and (min-device-width: 1024px) {
+			display: block;
+		}
+	}
 }
 
 .splash-content {
@@ -17,17 +23,17 @@
 
 .splash-placeholder {
 	@extend .splash-content;
-	height: 80%;
+	height: 70%;
 }
 
 .splash-logo {
-	height: 9em;
+	height: 11em;
 }
 
 .splash-text {
 	color: #fff;
 	font-size: 4em;
-	margin: 0.5em 0 1em;
+	margin: 0.4em 0 1em;
 }
 
 .splash-dismiss {
@@ -36,6 +42,7 @@
 	background-color: $rgba-blue;
 	font-size: 2.2em;
 	text-decoration: none;
+	display: inline-block;
 	padding: 0.7em 1.4em;
 	&:hover, &:focus {
 		background-color: $blue;

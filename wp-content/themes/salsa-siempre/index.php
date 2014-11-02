@@ -16,6 +16,11 @@
 
 <?php $splash = get_page_by_title('Start');
 if ($splash) { ?>
+	<script type="text/javascript">
+		if (!sessionStorage.splash) {
+			document.querySelector(".content").className += " splashy";
+		}
+	</script>
 	<div class="splash" style="background-image: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($splash->ID)); ?>')">
 		<div class="splash-placeholder">
 		</div><div class="splash-content">

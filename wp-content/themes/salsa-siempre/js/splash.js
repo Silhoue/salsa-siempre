@@ -6,5 +6,6 @@
 	dismiss.onclick = function (e) {
 		e.stopPropagation();
 		splash.style.display = "none";
+		sessionStorage.splash = true;
 	};
 })();
