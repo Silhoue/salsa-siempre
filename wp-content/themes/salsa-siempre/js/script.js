@@ -1,4 +1,16 @@
 (function () {
+	/* splash */
+	var splash = document.querySelector(".splash");
+	var dismiss = document.querySelector(".splash-dismiss");
+
+	if (splash && dismiss) {
+		dismiss.onclick = function (e) {
+			e.stopPropagation();
+			splash.style.display = "none";
+			sessionStorage.splash = true;
+		};
+	}
+
 	/* timetable filters */
 	var filters = document.querySelector(".timetable-filters");
 	var classes = document.querySelectorAll(".timetable-class");
@@ -22,6 +34,7 @@
 	/* mobile navigation menu */
 	var menu = document.querySelector( '.menu' );
 	var toggle = document.querySelector( '.menu-toggle' );
+
 	if (menu && toggle) {
 		toggle.onclick = function (e) {
 			e.stopPropagation();
