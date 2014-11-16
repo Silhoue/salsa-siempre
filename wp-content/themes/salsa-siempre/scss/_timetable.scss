@@ -57,32 +57,34 @@ $timetable-font-size: 1.2;
 	content: "| ";
 }
 
-/* levels */
-.timetable-levels {
+/* options */
+.timetable-options {
+	width: 100%;
 	max-width: 17em;
 	padding: 0 1.5em;
-	margin-bottom: 2.6em;
-	@media screen and (min-width: 50.8125em) {
+	@media screen and (min-width: 52em) {
 		float: right;
 	}
 }
 
-.timetable-levels-title {
+.timetable-option {
+	margin-bottom: 2.6em;
+}
+
+.timetable-option-title {
 	font-size: 1.5em;
 	font-weight: normal;
 	margin: 0 0 0.667em;
 }
 
-.timetable-levels-items {
+.timetable-levels {
 	padding: 0;
 	margin: 0;
 }
 
 .timetable-levels-item {
-	list-style: none;
-	font-size: 1em;
-	font-weight: normal;
 	display: inline-block;
+	list-style: none;
 	min-width: 50%;
 	margin-bottom: 0.4em;
 }
@@ -92,4 +94,29 @@ $timetable-font-size: 1.2;
 	vertical-align: middle;
 	width: 2.2em;
 	height: 1.8em;
+}
+
+.timetable-filters {
+	display: none;
+	@media screen and (min-width: 52em) {
+		display: block;
+	}
+	& input {
+		display: none;
+	}
+}
+
+.timetable-filters-item {
+	cursor: pointer;
+	line-height: 4em;
+	display: block;
+	height: 4em;
+	padding: 0 1em;
+	margin-bottom: 0.1em;
+	color: $black-grey;
+	background-color: #dcdcdc;
+	&:hover, :checked + & {
+		background-color: $blue;
+		color: #fff;
+	}
 }

@@ -24,25 +24,41 @@
 	add_filter('posts_orderby','timetable_orderby');
 	query_posts($classes);
 
-	if ( have_posts() ) {
+	if ( have_posts() ) { ?>
+		<div class="timetable-options">
+			<?php $levels = new WP_Query(array(
+				'post_type' => 'level',
+				'order' => 'asc'
+			)); ?>
+			<section class="timetable-option">
+				<h2 class="timetable-option-title">Oznaczenia poziomów</h2>
+				<ul class="timetable-levels">
+					<?php while ( $levels->have_posts() ) { $levels->the_post();
+						?><li class="timetable-levels-item">
+							<span class="timetable-levels-item-color"
+								  style="background-color:<?php the_field('color')?>"></span>
+							<span><?php the_title(); ?></span>
+						</li><?php
+						} ?>
+				</ul>
+			</section>
 
-		$levels = new WP_Query(array(
-			'post_type' => 'level',
-			'order' => 'asc'
-		)); ?>
-		<section class="timetable-levels">
-			<h2 class="timetable-levels-title">Oznaczenia poziomów</h2>
-			<ul class="timetable-levels-items">
-				<?php while ( $levels->have_posts() ) { $levels->the_post(); ?><!--
-				 --><li class="timetable-levels-item">
-						<span class="timetable-levels-item-color"
-							  style="background-color:<?php the_field('color')?>"></span>
-						<span><?php the_title(); ?></span>
-					</li><!--
-				--><?php }
-				wp_reset_postdata(); ?>
-			</ul>
-		</section>
+		 	<section class="timetable-option timetable-filters">
+				<h2 class="timetable-option-title">Filtr kursów</h2>
+				<?php $types = new WP_Query(array(
+					'post_type' => 'type',
+					'orderby' => 'title',
+					'order' => 'asc'
+				)); ?>
+				<input type="radio" name="filter" id="filter-0" checked/>
+				<label class="timetable-filters-item" for="filter-0">Wszystkie kursy</label>
+				<?php $i = 0;
+				while ( $types->have_posts() ) { $types->the_post(); $i+=1; ?>
+					<input type="radio" name="filter" id="<?php echo "filter-".$i ?>" data-type="<?php the_title(); ?>"/>
+					<label class="timetable-filters-item" for="<?php echo "filter-".$i ?>"><?php the_title(); ?></label>
+				<?php } ?>
+			</section>
+		</div>
 
 		<?php the_post();
 		$days_of_week = array('Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela');
@@ -63,9 +79,10 @@
 							<?php echo $studios[$studio]; ?>
 						</h3>
 					<?php }	?>
-					<a class="timetable-class <?php if (get_field("is_new")) { echo "class-new"; } ?>"
+					<a class="timetable-class<?php if (get_field("is_new")) { echo " class-new"; } ?>"
 					   href="<?php esc_url(the_permalink()); ?>"
-					   style="background-color:<?php echo get_field('level')->color ?>">
+					   style="background-color:<?php echo get_field('level')->color ?>"
+					   data-type="<?php echo $type ?>">
 						<span class="timetable-class-title"><?php echo $type.' '.$level ?></span>
 						<span class="timetable-class-details">
 							<span><?php echo get_field('teacher_1')->name;
