@@ -57,7 +57,7 @@ add_action( 'after_setup_theme', 'salsa_siempre_setup' );
 function salsa_siempre_scripts() {
 	wp_enqueue_style( 'salsa-siempre-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'salsa-siempre-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1', true );
+	wp_enqueue_script( 'salsa-siempre-script', get_template_directory_uri() . '/js/script.js', array(), '1', true );
 
 	wp_enqueue_script( 'salsa-siempre-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '1', true );
 
