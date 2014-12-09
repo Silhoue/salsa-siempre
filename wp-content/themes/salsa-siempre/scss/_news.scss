@@ -143,13 +143,16 @@ $duration: 0.4s;
 
 .news-classes-item-title {
 	font-size: 2em;
-	line-height: 2em;
+	line-height: 1.5em;
 	font-weight: normal;
 	text-align: center;
+	padding: 0.25em 0;
 	margin: 0;
 	.news-classes-item:hover &,
 	.news-classes-item:focus & {
 		text-align: left;
+		line-height: 1em;
+		padding: 0.5em 0;
 	};
 }
 
