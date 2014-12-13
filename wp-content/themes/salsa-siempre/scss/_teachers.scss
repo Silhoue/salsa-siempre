@@ -12,3 +12,16 @@
 .teacher-skills-rating {
 	color: $yellow;
 }
+
+.teacher-classes .classes-item {
+	display: inline-block;
+	max-width: 40em;
+	box-sizing: border-box;
+	padding: 0 1.5em;
+	margin: 0 0 3em;
+}
+
+.teacher-classes .classes-item-overlay-wrapper {
+	left: 1.5em;
+	right: 1.5em;
+}
