@@ -23,8 +23,14 @@
 			<span class="post-detail">Termin: <span class="post-detail-value"><?php
 				echo $days_of_week[get_field("day_of_week")] ?>, <?php the_field("start_hour"); ?>&nbsp;-&nbsp;<?php the_field("end_hour"); ?> (<?php echo $studios[get_field("place")]; ?>)</span></span>
 
-			<span class="post-detail">Instruktorzy: <span class="post-detail-value"><?php echo get_field("teacher_1")->post_title;
-				if (get_field("teacher_2")) { ?> &amp;&nbsp;<?php echo get_field("teacher_2")->post_title; } ?></span></span>
+			<span class="post-detail">Instruktorzy: <span class="post-detail-value"><a class="post-detail-value-link" href="<?php echo get_permalink(get_field("teacher_1")->ID); ?>"><?php
+				echo get_field("teacher_1")->post_title;
+				?></a><?php
+				if (get_field("teacher_2")) {
+					?> &amp;&nbsp;<a class="post-detail-value-link" href="<?php echo get_permalink(get_field("teacher_2")->ID); ?>"><?php
+					echo get_field("teacher_2")->post_title;
+					?></a><?php
+				} ?></span></span>
 
 			<?php if (get_field("start_date")) { ?>
 				<span class="post-detail">Data rozpoczęcia: <span class="post-detail-value"><?php the_field("start_date"); ?></span></span>

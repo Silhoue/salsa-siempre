@@ -51,6 +51,13 @@
 	font-weight: bold;
 }
 
+.post-detail-value-link {
+	color: inherit;
+	&:hover {
+		color: $yellow;
+	}
+}
+
 .post-content {
 	font-size: 1.4em;
 	& p {
