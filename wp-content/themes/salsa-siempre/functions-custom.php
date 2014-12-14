@@ -1134,10 +1134,12 @@ function remove_menus () {
 	add_menu_page('Eksport', 'Eksport', 'manage_options', 'export.php', '', 'dashicons-download', 90);
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
+	remove_submenu_page('edit.php?post_type=class', 'order-post-types-class');
 	remove_submenu_page('options-general.php', 'options-writing.php');
 	remove_submenu_page('options-general.php', 'options-discussion.php');
 	remove_submenu_page('options-general.php', 'options-media.php');
 	remove_submenu_page('options-general.php', 'options-permalink.php');
+	remove_submenu_page('options-general.php', 'cpto-options');
 }
 
 add_action('wp_before_admin_bar_render', 'remove_admin_bar_links');
