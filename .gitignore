@@ -8,6 +8,11 @@ wp-content/*
 !wp-content/themes/
 
 wp-content/plugins/*
+!wp-content/plugins/post-types-order
+
+wp-content/plugins/post-types-order/*
+!wp-content/plugins/post-types-order/*.php
+
 wp-content/themes/*
 !wp-content/themes/salsa-siempre
 
