@@ -66,6 +66,12 @@
 	& iframe { // YT videos
 		width: 100%;
 	}
+	& a {
+		color: inherit;
+		&:hover {
+			color: $yellow;
+		}
+	}
 }
 
 .post-action {
