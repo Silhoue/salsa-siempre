@@ -11,7 +11,10 @@ wp-content/plugins/*
 !wp-content/plugins/post-types-order
 
 wp-content/plugins/post-types-order/*
-!wp-content/plugins/post-types-order/*.php
+!wp-content/plugins/post-types-order/include
+
+wp-content/plugins/post-types-order/include/*
+!wp-content/plugins/post-types-order/include/cpto-class.*.php
 
 wp-content/themes/*
 !wp-content/themes/salsa-siempre
