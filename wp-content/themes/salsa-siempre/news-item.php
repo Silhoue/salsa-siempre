@@ -14,7 +14,7 @@
 		<div class="news-item-caption">
 			<h2 class="news-item-title"><?php the_title(); ?></h2>
 			<?php if (get_field("start_date")) { ?>
-				<span class="news-item-detail">Termin:&nbsp;<?php the_field("start_date");
+				<span class="news-item-detail">Data:&nbsp;<?php the_field("start_date");
 				if (get_field("end_date")) { ?> - <?php the_field("end_date"); } ?></span>
 			<?php }
 			if (get_field("place")) { ?>
