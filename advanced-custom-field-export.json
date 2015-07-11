@@ -1,0 +1,887 @@
+[
+    {
+        "key": "group_5591b34e9220e",
+        "title": "Album",
+        "fields": [
+            {
+                "key": "field_55a19596af70e",
+                "label": "Data rozpocz\u0119cia",
+                "name": "start_date",
+                "prefix": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "d.m.Y",
+                "return_format": "d.m.Y",
+                "first_day": 1
+            },
+            {
+                "key": "field_55a1959caf70f",
+                "label": "Data zako\u0144czenia",
+                "name": "end_date",
+                "prefix": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "d.m.Y",
+                "return_format": "d.m.Y",
+                "first_day": 1
+            },
+            {
+                "key": "field_55a195a8af710",
+                "label": "Miejsce",
+                "name": "place",
+                "prefix": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Studio Ta\u0144ca Salsa Siempre",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_5591b45556dee",
+                "label": "Zdj\u0119cia",
+                "name": "photos",
+                "prefix": "",
+                "type": "gallery",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "min": "",
+                "max": "",
+                "preview_size": "thumbnail",
+                "library": "all"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "album"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": ""
+    },
+    {
+        "key": "group_54c04aae008be",
+        "title": "Class",
+        "fields": [
+            {
+                "key": "field_5416269207a8c",
+                "label": "Nowy",
+                "name": "is_new",
+                "prefix": "",
+                "type": "true_false",
+                "instructions": "nowe kursy b\u0119d\u0105 widoczne w kolumnie \"Nowe kursy\" na stronie g\u0142\u00f3wnej, zostan\u0105 tak\u017ce odpowiednio oznaczone w grafiku i na stronie kursu",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Nowy kurs",
+                "default_value": 0
+            },
+            {
+                "key": "field_54160205abd6b",
+                "label": "Rodzaj kursu",
+                "name": "type",
+                "prefix": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "type"
+                ],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_54160385bb82c",
+                "label": "Poziom kursu",
+                "name": "level",
+                "prefix": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "level"
+                ],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_541603a6bb82d",
+                "label": "Instruktor 1",
+                "name": "teacher_1",
+                "prefix": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "teacher"
+                ],
+                "taxonomy": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_5416040a5a6be",
+                "label": "Instruktor 2",
+                "name": "teacher_2",
+                "prefix": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "teacher"
+                ],
+                "taxonomy": [],
+                "allow_null": 1,
+                "multiple": 0,
+                "return_format": "object",
+                "ui": 1
+            },
+            {
+                "key": "field_541605b29f616",
+                "label": "Dzie\u0144 tygodnia",
+                "name": "day_of_week",
+                "prefix": "",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": [
+                    "poniedzia\u0142ek",
+                    "wtorek",
+                    "\u015broda",
+                    "czwartek",
+                    "pi\u0105tek",
+                    "sobota",
+                    "niedziela"
+                ],
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0
+            },
+            {
+                "key": "field_5416041a5a6bf",
+                "label": "Godzina rozpocz\u0119cia",
+                "name": "start_hour",
+                "prefix": "",
+                "type": "date_time_picker",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_date": "false",
+                "date_format": "",
+                "time_format": "H:mm",
+                "show_week_number": "false",
+                "picker": "slider",
+                "save_as_timestamp": "true",
+                "get_as_timestamp": "false"
+            },
+            {
+                "key": "field_541604c722744",
+                "label": "Godzina zako\u0144czenia",
+                "name": "end_hour",
+                "prefix": "",
+                "type": "date_time_picker",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_date": "false",
+                "date_format": "m\/d\/y",
+                "time_format": "H:mm",
+                "show_week_number": "false",
+                "picker": "slider",
+                "save_as_timestamp": "true",
+                "get_as_timestamp": "false"
+            },
+            {
+                "key": "field_541604e122745",
+                "label": "Data rozpocz\u0119cia",
+                "name": "start_date",
+                "prefix": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "first_day": 1,
+                "return_format": "d.m.Y",
+                "display_format": "d.m.Y"
+            },
+            {
+                "key": "field_543031fb6cf81",
+                "label": "Sala",
+                "name": "studio",
+                "prefix": "",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": [
+                    "Sala 1",
+                    "Sala 2"
+                ],
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "class"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": []
+    },
+    {
+        "key": "group_54c04aae1e955",
+        "title": "Hide page editor",
+        "fields": [],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "teachers.php"
+                }
+            ],
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "types.php"
+                }
+            ],
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "levels.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ]
+    },
+    {
+        "key": "group_54c04aae212f7",
+        "title": "Hide page icon",
+        "fields": [],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "contact.php"
+                }
+            ],
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "teachers.php"
+                }
+            ],
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "timetable.php"
+                }
+            ],
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "types.php"
+                }
+            ],
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "levels.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "featured_image"
+        ]
+    },
+    {
+        "key": "group_54c04aae24f78",
+        "title": "Hide permalink",
+        "fields": [],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "type"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "level"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "package"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "partner"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "footer-item"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "special-offer"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "permalink"
+        ]
+    },
+    {
+        "key": "group_54c04aae28374",
+        "title": "Level",
+        "fields": [
+            {
+                "key": "field_5415fb1ec3b71",
+                "label": "Kolor",
+                "name": "color",
+                "prefix": "",
+                "type": "color_picker",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "level"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "permalink",
+            "slug"
+        ]
+    },
+    {
+        "key": "group_54c04aae2d75e",
+        "title": "News",
+        "fields": [
+            {
+                "key": "field_540237ad0917b",
+                "label": "Data rozpocz\u0119cia",
+                "name": "start_date",
+                "prefix": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "first_day": 1,
+                "return_format": "d.m",
+                "display_format": "d.m.Y"
+            },
+            {
+                "key": "field_5402384d0917e",
+                "label": "Data zako\u0144czenia",
+                "name": "end_date",
+                "prefix": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "first_day": 1,
+                "return_format": "d.m",
+                "display_format": "d.m.Y"
+            },
+            {
+                "key": "field_5402795f28caf",
+                "label": "Godzina rozpocz\u0119cia",
+                "name": "start_time",
+                "prefix": "",
+                "type": "date_time_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_date": "false",
+                "date_format": "m\/d\/y",
+                "time_format": "H:mm",
+                "show_week_number": "false",
+                "picker": "slider",
+                "save_as_timestamp": "true",
+                "get_as_timestamp": "false"
+            },
+            {
+                "key": "field_54027a69e1e07",
+                "label": "Godzina zako\u0144czenia",
+                "name": "end_time",
+                "prefix": "",
+                "type": "date_time_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "show_date": "false",
+                "date_format": "m\/d\/y",
+                "time_format": "H:mm",
+                "show_week_number": "false",
+                "picker": "slider",
+                "save_as_timestamp": "true",
+                "get_as_timestamp": "false"
+            },
+            {
+                "key": "field_5402384b0917d",
+                "label": "Miejsce",
+                "name": "place",
+                "prefix": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Studio Ta\u0144ca Salsa Siempre",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "formatting": "none",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "comments",
+            "format",
+            "categories",
+            "tags"
+        ]
+    },
+    {
+        "key": "group_54c04aae3dba0",
+        "title": "Package",
+        "fields": [
+            {
+                "key": "field_543acde78938f",
+                "label": "Cena",
+                "name": "price",
+                "prefix": "",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 0,
+                "max": "",
+                "step": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_543ad40e521ca",
+                "label": "Rodzaj",
+                "name": "type",
+                "prefix": "",
+                "type": "select",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": [
+                    "Karnet podstawowy",
+                    "Oferta specjalna"
+                ],
+                "default_value": [],
+                "allow_null": 0,
+                "multiple": 0,
+                "ui": 0,
+                "ajax": 0,
+                "placeholder": "",
+                "disabled": 0,
+                "readonly": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "package"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": []
+    },
+    {
+        "key": "group_54c04aae45e63",
+        "title": "Partner",
+        "fields": [
+            {
+                "key": "field_543c24a55e257",
+                "label": "Link do strony partnera",
+                "name": "link",
+                "prefix": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "formatting": "none",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "partner"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": []
+    },
+    {
+        "key": "group_54c04aae4ba18",
+        "title": "Splash",
+        "fields": [
+            {
+                "key": "field_54550be95f17c",
+                "label": "Tekst przycisku",
+                "name": "dismiss",
+                "prefix": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "formatting": "none",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page",
+                    "operator": "==",
+                    "value": "340"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": []
+    },
+    {
+        "key": "group_54c04aae50e79",
+        "title": "Teacher",
+        "fields": [
+            {
+                "key": "field_5414b58c476c0",
+                "label": "Liczba gwiazdek",
+                "name": "rating_3",
+                "prefix": "",
+                "type": "number",
+                "instructions": "od 1 do 6",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 1,
+                "max": 6,
+                "step": 1,
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_54b2ac036824a",
+                "label": "Galeria",
+                "name": "gallery",
+                "prefix": "",
+                "type": "gallery",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "min": "",
+                "max": "",
+                "preview_size": "thumbnail",
+                "library": "all"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "teacher"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "acf_after_title",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": ""
+    }
+]

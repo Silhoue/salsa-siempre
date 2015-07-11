@@ -1,6 +1,6 @@
 /*
 !.gitignore
-!*.xml
+!*.json
 !wp-content/
 
 wp-content/*
