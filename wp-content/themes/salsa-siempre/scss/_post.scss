@@ -60,13 +60,13 @@
 
 .post-content {
 	font-size: 1.4em;
-	& p {
+	p {
 		margin: 1em 0 0;
 	}
-	& iframe { // YT videos
+	iframe { // YT videos
 		width: 100%;
 	}
-	& a {
+	a {
 		color: inherit;
 		&:hover {
 			color: $yellow;
@@ -81,4 +81,17 @@
 	display: block;
 	max-width: 10em;
 	margin-top: 1em;
+}
+
+.post-gallery {
+	margin-top: 2.5em;
+}
+
+.post-gallery-item {
+	display: inline-block;
+	vertical-align: bottom;
+	margin: 0 1.5em 3em;
+	img {
+		display: block;
+	}
 }
