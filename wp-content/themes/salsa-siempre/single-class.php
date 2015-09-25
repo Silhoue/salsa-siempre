@@ -21,7 +21,7 @@
 			<h1 class="post-title"><?php echo get_field('type')->post_title." ".get_field('level')->post_title ?></h1>
 
 			<span class="post-detail">Termin: <span class="post-detail-value"><?php
-				echo $days_of_week[get_field("day_of_week")] ?>, <?php the_field("start_hour"); ?>&nbsp;-&nbsp;<?php the_field("end_hour"); ?> (<?php echo $studios[get_field("place")]; ?>)</span></span>
+				echo $days_of_week[get_field("day_of_week")] ?>, <?php the_field("start_hour"); ?>&nbsp;-&nbsp;<?php the_field("end_hour"); ?> (<?php echo $studios[get_field("studio")]; ?>)</span></span>
 
 			<span class="post-detail">Instruktorzy: <span class="post-detail-value"><a class="post-detail-value-link" href="<?php echo get_permalink(get_field("teacher_1")->ID); ?>"><?php
 				echo get_field("teacher_1")->post_title;
