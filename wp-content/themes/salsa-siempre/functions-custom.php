@@ -84,7 +84,7 @@ function add_class_posts_sortable_columns( $columns ) {
 
 add_filter( 'request', 'define_class_posts_sortable_columns' );
 function define_class_posts_sortable_columns( $vars ) {
-	if ( $vars['post_type'] == 'class' ) {
+	if ( array_key_exists('orderby', $vars) && $vars['post_type'] == 'class' ) {
 		if ('day_of_week' == $vars['orderby'] ) {
 			$vars = array_merge( $vars, array(
 				'meta_key' => 'day_of_week',
@@ -106,7 +106,7 @@ function define_class_posts_sortable_columns( $vars ) {
 
 add_filter( 'posts_orderby', 'orderby_related_post_title' );
 function orderby_related_post_title( $orderby_statement ) {
-	if (strpos($_GET['orderby'], 'related.') === 0) {
+	if (array_key_exists('orderby', $_GET) && strpos($_GET['orderby'], 'related.') === 0) {
 		$meta_key = substr($_GET['orderby'], 8);
 		if ( ctype_alnum($meta_key) ) {
 			$query = '(
