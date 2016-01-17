@@ -1307,7 +1307,7 @@ function remove_admin_bar_links () {
     $wp_admin_bar->remove_menu('wp-logo');
     $wp_admin_bar->remove_menu('dashboard');
     $wp_admin_bar->remove_menu('appearance');
-    $wp_admin_bar->remove_menu('view-site');
+    $wp_admin_bar->remove_menu('customize');
     $wp_admin_bar->remove_menu('comments');
 }
 
