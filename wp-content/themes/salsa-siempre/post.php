@@ -29,4 +29,8 @@
 	<div class="post-content">
 		<?php the_content(); ?>
 	</div>
+
+	<div class="post-footer">
+		Ostatnia aktualizacja: <?php the_modified_date(); ?>
+	</div>
 </article>

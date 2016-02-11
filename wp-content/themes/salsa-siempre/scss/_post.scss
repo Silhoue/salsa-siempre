@@ -74,13 +74,20 @@
 	}
 }
 
+.post-footer {
+    font-size: 1.2em;
+    font-style: italic;
+    text-align: right;
+    margin-top: 0.8em;
+}
+
 .post-action {
 	@extend .news-classes-title;
 	font-size: 1.5em;
 	text-decoration: none;
 	display: block;
 	max-width: 10em;
-	margin-top: 1em;
+	margin-top: 0.8em;
 }
 
 .post-gallery {

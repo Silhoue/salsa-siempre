@@ -41,6 +41,10 @@
 			<?php the_content(); ?>
 		</div>
 
+		<div class="post-footer">
+			Ostatnia aktualizacja: <?php the_modified_date(); ?>
+		</div>
+
 		<?php $registration = get_page_by_title('Zapisy');
 		if ($registration) { ?>
 			<a class="post-action" href="<?php echo get_page_link($registration->ID) ?>">Zapisz się!</a>
