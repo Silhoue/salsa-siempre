@@ -825,7 +825,188 @@
         "title": "Teacher",
         "fields": [
             {
-                "key": "field_5414b58c476c0",
+                "key": "field_56ec3d85465a5",
+                "label": "Imi\u0119",
+                "name": "name",
+                "prefix": "",
+                "type": "text",
+                "instructions": "Zostanie u\u017cyte w grafiku",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56ec41b8fd8ff",
+                "label": "Umiej\u0119tno\u015b\u0107 1",
+                "name": "",
+                "prefix": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_56ec4217fd900",
+                "label": "Nazwa",
+                "name": "skill_1",
+                "prefix": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56ec4261fd901",
+                "label": "Liczba gwiazdek",
+                "name": "rating_1",
+                "prefix": "",
+                "type": "number",
+                "instructions": "od 1 do 6",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 1,
+                "max": 6,
+                "step": 1,
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56ec4314fd905",
+                "label": "Umiej\u0119tno\u015b\u0107 2",
+                "name": "",
+                "prefix": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_56ec42b1fd902",
+                "label": "Nazwa",
+                "name": "skill_2",
+                "prefix": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56ec437afd908",
+                "label": "Liczba gwiazdek",
+                "name": "rating_2",
+                "prefix": "",
+                "type": "number",
+                "instructions": "od 1 do 6",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 1,
+                "max": 6,
+                "step": 1,
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56ec431cfd906",
+                "label": "Umiej\u0119tno\u015b\u0107 3",
+                "name": "",
+                "prefix": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_56ec42fafd903",
+                "label": "Nazwa",
+                "name": "skill_3",
+                "prefix": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56ec438bfd909",
                 "label": "Liczba gwiazdek",
                 "name": "rating_3",
                 "prefix": "",
@@ -849,11 +1030,26 @@
                 "disabled": 0
             },
             {
-                "key": "field_54b2ac036824a",
-                "label": "Galeria",
-                "name": "gallery",
+                "key": "field_56ec4366fd907",
+                "label": "Umiej\u0119tno\u015b\u0107 4",
+                "name": "",
                 "prefix": "",
-                "type": "gallery",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                }
+            },
+            {
+                "key": "field_56ec4307fd904",
+                "label": "Nazwa",
+                "name": "skill_4",
+                "prefix": "",
+                "type": "text",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -862,10 +1058,37 @@
                     "class": "",
                     "id": ""
                 },
-                "min": "",
-                "max": "",
-                "preview_size": "thumbnail",
-                "library": "all"
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "readonly": 0,
+                "disabled": 0
+            },
+            {
+                "key": "field_56ec439dfd90a",
+                "label": "Liczba gwiazdek",
+                "name": "rating_4",
+                "prefix": "",
+                "type": "number",
+                "instructions": "od 1 do 6",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "min": 1,
+                "max": 6,
+                "step": 1,
+                "readonly": 0,
+                "disabled": 0
             }
         ],
         "location": [
