@@ -27,7 +27,7 @@
 				echo get_field("teacher_1")->post_title;
 				?></a><?php
 				if (get_field("teacher_2")) {
-					?> &amp;&nbsp;<a class="post-detail-value-link" href="<?php echo get_permalink(get_field("teacher_2")->ID); ?>"><?php
+					?> i&nbsp;<a class="post-detail-value-link" href="<?php echo get_permalink(get_field("teacher_2")->ID); ?>"><?php
 					echo get_field("teacher_2")->post_title;
 					?></a><?php
 				} ?></span></span>

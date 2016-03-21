@@ -22,7 +22,7 @@
 			<?php } ?>
 
 			<span class="classes-item-detail">prowadzi <?php echo get_field("teacher_1")->name;
-			if (get_field("teacher_2")) { ?> &amp;&nbsp;<?php echo get_field("teacher_2")->name; } ?></span>
+			if (get_field("teacher_2")) { ?> i&nbsp;<?php echo get_field("teacher_2")->name; } ?></span>
 		</div>
 		<div class="classes-item-overlay-caption">Zapisz się!</div>
 	</div>

@@ -87,7 +87,7 @@
 						<span class="timetable-class-details">
 							<span><?php echo get_field('teacher_1')->name;
 								if (get_field("teacher_2")) { ?>
-									&amp; <?php echo get_field("teacher_2")->name;
+									i <?php echo get_field("teacher_2")->name;
 								} ?>
 							</span>
 							<span class="timetable-class-hours">
