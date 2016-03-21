@@ -27,8 +27,7 @@
 	if ( have_posts() ) { ?>
 		<div class="timetable-options">
 			<?php $levels = new WP_Query(array(
-				'post_type' => 'level',
-				'order' => 'asc'
+				'post_type' => 'level'
 			)); ?>
 			<section class="timetable-option">
 				<h2 class="timetable-option-title">Oznaczenia poziomów</h2>
@@ -46,9 +45,7 @@
 		 	<section class="timetable-option timetable-filters">
 				<h2 class="timetable-option-title">Filtr kursów</h2>
 				<?php $types = new WP_Query(array(
-					'post_type' => 'type',
-					'orderby' => 'title',
-					'order' => 'asc'
+					'post_type' => 'type'
 				)); ?>
 				<input type="radio" name="filter" id="filter-0" checked/>
 				<label class="timetable-filters-item" for="filter-0">Wszystkie kursy</label>

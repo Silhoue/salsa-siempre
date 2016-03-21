@@ -10,8 +10,7 @@
 	<h1 class="page-title">Instruktorzy</h1>
 	<?php
 		$teachers = array(
-			'post_type' => 'teacher',
-			'order' => 'ASC'
+			'post_type' => 'teacher'
 		);
 		query_posts($teachers);
 	?>
