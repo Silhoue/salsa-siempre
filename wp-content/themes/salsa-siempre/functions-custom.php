@@ -694,6 +694,7 @@ if( function_exists('register_field_group') ):
 				'choices' => array (
 					0 => 'Sala 1',
 					1 => 'Sala 2',
+					2 => 'Sala 3',
 				),
 				'default_value' => array (
 				),
