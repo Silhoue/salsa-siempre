@@ -3,6 +3,10 @@
     "type": "git",
     "url": "https://github.com/Silhoue/salsa-siempre"
   },
+  "scripts": {
+    "watch": "gulp watch",
+    "sass": "gulp sass"
+  },
   "devDependencies": {
     "gulp": "~3.8.7",
     "gulp-sass": "~0.7.3",
