@@ -64,7 +64,9 @@
 		margin: 1em 0 0;
 	}
 	iframe { // YT videos
-		width: 100%;
+		max-width: 100%;
+		margin: auto;
+		display: block;
 	}
 	a {
 		color: inherit;
@@ -75,10 +77,10 @@
 }
 
 .post-footer {
-    font-size: 1.2em;
-    font-style: italic;
-    text-align: right;
-    margin-top: 0.8em;
+	font-size: 1.2em;
+	font-style: italic;
+	text-align: right;
+	margin-top: 0.8em;
 }
 
 .post-action {
