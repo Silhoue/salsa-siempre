@@ -49,11 +49,9 @@ if ( $classes->have_posts() ) { ?>
 	</section><?php
 	} wp_reset_postdata();
 	if (have_posts()) {
-		echo "<!--";
 		while (have_posts()) { the_post();
 			get_template_part("news-item");
 		}
-		echo "-->";
 	} else { ?>
 		<p class="page-message">
 			Brak aktualności.

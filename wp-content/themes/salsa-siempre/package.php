@@ -3,8 +3,7 @@
  * @package Salsa Siempre
  */
 ?>
-
---><section class="package">
+<section class="package">
 	<?php if (get_the_post_thumbnail())  { ?>
 		<?php the_post_thumbnail("medium", array("class" => "news-item-image", "alt" => "")); ?>
 	<?php } ?>
@@ -14,4 +13,4 @@
 		</h2>
 		<div class="package-content"><?php the_content(); ?></div>
 	</div>
-</section><!--
+</section>

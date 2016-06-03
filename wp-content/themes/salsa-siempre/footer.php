@@ -16,14 +16,14 @@
 				'post_type' => 'footer-item'
 			);
 			query_posts($footer_items);
-			if (have_posts()) { ?>
-				<?php while (have_posts()) { the_post();
+			if (have_posts()) {
+				while (have_posts()) { the_post();
 				?><section class="footer-item">
 					<h1 class="footer-item-title"><?php the_title(); ?></h1>
 					<?php the_content(); ?>
 				</section><?php
-				} ?>
-			<?php }
+				}
+			}
 			?><section class="footer-item">
 				<h1 class="footer-item-title">Social media</h1>
 				<ul class="footer-item-media-items">

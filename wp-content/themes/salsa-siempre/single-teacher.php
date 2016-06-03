@@ -12,10 +12,9 @@
 	if (get_the_post_thumbnail()) { ?>
 		<div class="post-image-wrapper">
 		<?php the_post_thumbnail("full", array("class" => "post-image", "alt" => "")); ?>
-		</div>
-	<?php } ?>
-
-	<article class="post">
+		</div><?php
+	}
+	?><article class="post">
 		<header class="post-header">
 			<h1 class="post-title"><?php the_title(); ?></h1>
 			<?php $i = 1;
@@ -61,7 +60,7 @@
 		<section class="teacher-classes">
 			<h2 class="page-title">Kursy tego instruktora</h2>
 			<?php while ($classes->have_posts()) { $classes->the_post();
-				get_template_part('classes-item');
+				get_template_part("classes-item");
 			} ?>
 		</section>
 	<?php }

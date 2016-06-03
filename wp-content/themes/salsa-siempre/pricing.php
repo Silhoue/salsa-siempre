@@ -20,20 +20,15 @@ query_posts($packages);
 if ( have_posts() ) { ?>
 	<section>
 	<?php $type = -1; $types = array('Karnety podstawowe', 'Oferty specjalne');
-	echo "<!--";
 	while ( have_posts() ) { the_post();
 		if (get_field("type") != $type) {
-			$type = get_field("type");
-			echo "-->"; ?>
+			$type = get_field("type");?>
 			</section>
 			<section>
-				<h2 class="page-title"><?php echo $types[$type] ?></h2>
-			<?php
-			echo "<!--";
+				<h2 class="page-title"><?php echo $types[$type] ?></h2><?php
 		}
 		get_template_part("package");
-	}
-	echo "-->"; ?>
+	} ?>
 	</section>
 <?php } ?>
 </main>

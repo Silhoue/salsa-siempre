@@ -16,11 +16,9 @@
 		query_posts($albums);
 	?>
 	<?php if ( have_posts() ) {
-		echo "<!--";
 		while ( have_posts() ) { the_post();
 			get_template_part("news-item");
 		}
-		echo "-->";
 	} ?>
 </main>
 

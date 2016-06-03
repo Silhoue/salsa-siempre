@@ -3,8 +3,7 @@
  * @package Salsa Siempre
  */
 ?>
-
---><section class="news-item">
+<section class="news-item">
 	<a href="<?php esc_url(the_permalink()); ?>" rel="bookmark">
 		<?php if (get_the_post_thumbnail()) { ?>
 		<div class="news-item-image-wrapper">
@@ -22,4 +21,4 @@
 			<?php } ?>
 		</div>
 	</a>
-</section><!--
+</section>

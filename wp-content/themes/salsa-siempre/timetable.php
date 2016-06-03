@@ -35,8 +35,8 @@
 					<?php while ( $levels->have_posts() ) { $levels->the_post();
 						?><li class="timetable-levels-item">
 							<span class="timetable-levels-item-color"
-								  style="background-color:<?php the_field('color')?>"></span>
-							<span><?php the_title(); ?></span>
+								  style="background-color:<?php the_field('color')?>"></span
+							><span><?php the_title(); ?></span>
 						</li><?php
 						} ?>
 				</ul>
@@ -75,8 +75,8 @@
 						<h3 class="timetable-studio-title">
 							<?php echo $studios[$studio]; ?>
 						</h3>
-					<?php }	?>
-					<a class="timetable-class<?php if (get_field("is_new")) { echo " class-new"; } ?>"
+					<?php }
+					?><a class="timetable-class<?php if (get_field("is_new")) { echo " class-new"; } ?>"
 					   href="<?php esc_url(the_permalink()); ?>"
 					   style="background-color:<?php echo get_field('level')->color ?>"
 					   data-type="<?php echo $type ?>">
@@ -91,8 +91,8 @@
 								<?php the_field('start_hour'); ?>-<?php the_field('end_hour'); ?>
 							</span>
 						</span>
-					</a>
-					<?php if (!have_posts()) { break; }
+					</a><?php
+					if (!have_posts()) { break; }
 					the_post();
 				} while (get_field('day_of_week') == $day_of_week); ?>
 			</section>
