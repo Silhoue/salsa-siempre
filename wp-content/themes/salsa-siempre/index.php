@@ -31,7 +31,7 @@ if ($splash) { ?>
 	</div>
 <?php } ?>
 
-<main role="main">
+<main role="main" class="news">
 <?php $classes = new WP_Query(array(
 	'post_type' => 'class',
 	'meta_key' => 'is_new',
