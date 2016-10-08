@@ -22,8 +22,6 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'salsa-siempre' ); ?></a>
-
 	<header class="header" role="banner">
 		<div class="header-inner">
 			<a href="<?php echo esc_url(home_url()); ?>">
