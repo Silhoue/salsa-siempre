@@ -70,7 +70,7 @@
 				foreach( $types as $type ) {
 					$i+=1; ?>
 					<input type="radio" name="filter" id="<?php echo "filter-".$i ?>" data-type="<?php echo $type->title; ?>"/>
-					<label class="timetable-filters-item" for="<?php echo "filter-".$i ?>"><?php echo $type->title; ?></label>
+					<label class="timetable-filters-item" for="<?php echo "filter-".$i ?>"><?php echo $type->title." (".$type->count.")"; ?></label>
 				<?php } ?>
 			</section>
 		</div>
