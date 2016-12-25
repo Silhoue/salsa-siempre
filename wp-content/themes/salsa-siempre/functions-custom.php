@@ -1516,6 +1516,7 @@ function remove_menus () {
 	remove_menu_page('tools.php');
 	add_menu_page('Menu', 'Menu', 'manage_options', 'nav-menus.php', '', 'dashicons-menu', 15);
 	add_menu_page('Eksport', 'Eksport', 'manage_options', 'export.php', '', 'dashicons-download', 90);
+	remove_submenu_page('index.php', 'update-core.php');
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=category');
 	remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag');
 	remove_submenu_page('edit.php?post_type=class', 'order-post-types-class');
@@ -1534,6 +1535,7 @@ function remove_admin_bar_links () {
     $wp_admin_bar->remove_menu('appearance');
     $wp_admin_bar->remove_menu('customize');
     $wp_admin_bar->remove_menu('comments');
+    $wp_admin_bar->remove_menu('updates');
 }
 
 ?>
