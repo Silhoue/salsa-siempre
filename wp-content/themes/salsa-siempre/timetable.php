@@ -42,17 +42,35 @@
 				</ul>
 			</section>
 
-		 	<section class="timetable-option timetable-filters">
+			<section class="timetable-option timetable-filters">
 				<h2 class="timetable-option-title">Filtr kursów</h2>
-				<?php $types = new WP_Query(array(
-					'post_type' => 'type'
-				)); ?>
 				<input type="radio" name="filter" id="filter-0" checked/>
 				<label class="timetable-filters-item" for="filter-0">Wszystkie kursy</label>
-				<?php $i = 0;
-				while ( $types->have_posts() ) { $types->the_post(); $i+=1; ?>
-					<input type="radio" name="filter" id="<?php echo "filter-".$i ?>" data-type="<?php the_title(); ?>"/>
-					<label class="timetable-filters-item" for="<?php echo "filter-".$i ?>"><?php the_title(); ?></label>
+				<?php
+				$types_qry = "SELECT T.post_title AS title, COUNT(C.id) AS count
+						FROM wp_posts T
+						LEFT JOIN (
+							SELECT P.id AS id, M.meta_value AS type_id
+							FROM wp_posts P
+							INNER JOIN wp_postmeta M
+							ON P.id = M.post_id
+							AND P.post_type=\"class\"
+							AND P.post_status=\"publish\"
+							AND M.meta_key=\"type\"
+						) C
+						ON T.id = C.type_id
+						WHERE T.post_type=\"type\"
+						AND T.post_status=\"publish\"
+						GROUP BY T.post_title
+						ORDER BY COUNT(C.id) DESC";
+				$types = $wpdb->get_results( $types_qry );
+				?>
+				<?php
+				$i = 0;
+				foreach( $types as $type ) {
+					$i+=1; ?>
+					<input type="radio" name="filter" id="<?php echo "filter-".$i ?>" data-type="<?php echo $type->title; ?>"/>
+					<label class="timetable-filters-item" for="<?php echo "filter-".$i ?>"><?php echo $type->title; ?></label>
 				<?php } ?>
 			</section>
 		</div>
