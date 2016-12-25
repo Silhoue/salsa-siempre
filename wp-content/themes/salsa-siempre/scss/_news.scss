@@ -77,7 +77,7 @@ $news-item-width: 37em + 2 * $news-item-padding;
 	float: right;
 	box-sizing: border-box;
 	width: 100%;
-	max-width: $news-item-width * 0.9;
+	max-width: $news-item-width;
 	padding: 0 $news-item-padding;
 	margin-bottom: 3em;
 }
@@ -85,6 +85,7 @@ $news-item-width: 37em + 2 * $news-item-padding;
 .news-classes-inner {
 	font-size: 0.9em;
 	background-color: $light-grey;
+	padding: 0 2em 2em;
 }
 
 .news-classes-title {
