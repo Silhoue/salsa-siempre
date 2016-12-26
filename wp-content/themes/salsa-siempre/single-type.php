@@ -13,9 +13,8 @@
 
 	function type_classes_clauses($clauses) {
 		remove_filter('posts_clauses', 'type_classes_clauses');
-		$type_id = get_the_ID();
-		$clauses['where'] .= ' AND (wp_postmeta.meta_value = '.$type_id.')';
-		$clauses['orderby'] = 'mt1.meta_value ASC';
+		$clauses['join'] .= 'INNER JOIN wp_posts AS L ON L.ID = mt1.meta_value';
+		$clauses['orderby'] = 'L.menu_order ASC';
 		return $clauses;
 	}
 	add_filter('posts_clauses','type_classes_clauses');
@@ -23,7 +22,10 @@
 	$classes = new WP_Query(array(
 		'post_type' => 'class',
 		'meta_query' => array (
-			array('key' => 'type'),
+			array(
+				'key' => 'type',
+				'value' => get_the_ID()
+			),
 			array('key' => 'level')
 		)
 	));
