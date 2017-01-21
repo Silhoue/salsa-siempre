@@ -47,22 +47,22 @@
 				<input type="radio" name="filter" id="filter-0" checked/>
 				<label class="timetable-filters-item" for="filter-0">Wszystkie kursy</label>
 				<?php
-				$types_qry = "SELECT T.post_title AS title, COUNT(C.id) AS count
-						FROM wp_posts T
-						LEFT JOIN (
-							SELECT P.id AS id, M.meta_value AS type_id
-							FROM wp_posts P
-							INNER JOIN wp_postmeta M
-							ON P.id = M.post_id
-							AND P.post_type=\"class\"
-							AND P.post_status=\"publish\"
-							AND M.meta_key=\"type\"
-						) C
-						ON T.id = C.type_id
-						WHERE T.post_type=\"type\"
-						AND T.post_status=\"publish\"
-						GROUP BY T.post_title
-						ORDER BY COUNT(C.id) DESC";
+				$types_qry = 'SELECT T.post_title AS title, COUNT(C.id) AS count
+					FROM wp_posts T
+					LEFT JOIN (
+						SELECT P.id AS id, M.meta_value AS type_id
+						FROM wp_posts P
+						INNER JOIN wp_postmeta M
+						ON P.id = M.post_id
+							AND P.post_type="class"
+							AND P.post_status="publish"
+							AND M.meta_key="type"
+					) C
+					ON T.id = C.type_id
+					WHERE T.post_type="type"
+						AND T.post_status="publish"
+					GROUP BY T.post_title
+					ORDER BY COUNT(C.id) DESC';
 				$types = $wpdb->get_results( $types_qry );
 				?>
 				<?php
@@ -88,14 +88,14 @@
 				<?php } else do {
 					$type = get_field('type')->post_title;
 					$level = get_field('level')->post_title;
+					$start_date = substr(get_field('start_date'), 0, 5);
 					if (get_field('studio') != $studio) {
 						$studio = get_field('studio'); ?>
 						<h3 class="timetable-studio-title">
 							<?php echo $studios[$studio]; ?>
 						</h3>
 					<?php }
-					?><a class="timetable-class<?php if (get_field("is_new")) { echo " class-new"; } ?>"
-					   href="<?php esc_url(the_permalink()); ?>"
+					?><a class="timetable-class" href="<?php esc_url(the_permalink()); ?>"
 					   style="background-color:<?php echo get_field('level')->color ?>"
 					   data-type="<?php echo $type ?>">
 						<span class="timetable-class-title"><?php echo $type.' '.$level ?></span>
@@ -109,6 +109,11 @@
 								<?php the_field('start_hour'); ?>-<?php the_field('end_hour'); ?>
 							</span>
 						</span>
+						<?php if (get_field("is_new")) { ?>
+							<div class="timetable-class-new">
+								Nowy kurs<?php if ($start_date) echo " - od ".$start_date ?>
+							</div>
+						<?php } ?>
 					</a><?php
 					if (!have_posts()) { break; }
 					the_post();

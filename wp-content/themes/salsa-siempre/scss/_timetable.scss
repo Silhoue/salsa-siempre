@@ -34,14 +34,13 @@ $timetable-font-size: 1.2;
 	&:hover, &:focus {
 		color: $yellow;
 	}
-	&.class-new:before {
-		content: "NOWY";
-		color: #fff;
-		background-color: $yellow;
-		float: right;
-		padding: 0 0.4em;
-		margin: -1.4em / $timetable-font-size -1em 0 0;
-	}
+}
+
+.timetable-class-new {
+	color: #fff;
+	background-color: $yellow;
+	text-align: center;
+	margin: 0.5em -1em -0.5em;
 }
 
 .timetable-class-title {
@@ -73,7 +72,7 @@ $timetable-font-size: 1.2;
 
 .timetable-option-title {
 	font-size: 1.5em;
-	font-weight: normal;
+	font-weight: 400;
 	margin: 0 0 0.667em;
 }
 
