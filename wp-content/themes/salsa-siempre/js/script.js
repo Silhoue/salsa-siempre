@@ -12,20 +12,31 @@
 	}
 
 	/* timetable filters */
+	var content = document.querySelector(".content");
 	var filters = document.querySelector(".timetable-filters");
 	var classes = document.querySelectorAll(".timetable-class");
 	var length = classes.length;
+	var days = document.querySelectorAll(".timetable-day");
 
 	if (filters && classes) {
 		filters.addEventListener("change", function (e) {
+			var i;
 			var type = e.target.dataset.type;
 			if (type) {
-				for (var i = 0; i < length; i+=1) {
-					classes[i].style.opacity = (classes[i].dataset.type === type) ? "1" : "0.2" ;
+				content.className = "content _filtered"
+				for (i = 0; i < length; i+=1) {
+					classes[i].className = "timetable-class" + (classes[i].dataset.type === type ? "" : " _hidden");
+				}
+				for (i = 0; i < 7; i+=1) {
+					days[i].className = "timetable-day" + (days[i].querySelector(".timetable-class:not(._hidden)") ? "" : " _hidden");
 				}
 			} else {
-				for (var i = 0; i < length; i+=1) {
-					classes[i].style.opacity = "1";
+				content.className = "content"
+				for (i = 0; i < length; i+=1) {
+					classes[i].className = "timetable-class";
+				}
+				for (i = 0; i < 7; i+=1) {
+					days[i].className = "timetable-day";
 				}
 			}
 		});

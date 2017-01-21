@@ -90,11 +90,11 @@
 					$level = get_field('level')->post_title;
 					$start_date = substr(get_field('start_date'), 0, 5);
 					if (get_field('studio') != $studio) {
-						$studio = get_field('studio'); ?>
-						<h3 class="timetable-studio-title">
+						$studio = get_field('studio');
+						?><h3 class="timetable-studio-title">
 							<?php echo $studios[$studio]; ?>
-						</h3>
-					<?php }
+						</h3><?php
+					}
 					?><a class="timetable-class" href="<?php esc_url(the_permalink()); ?>"
 					   style="background-color:<?php echo get_field('level')->color ?>"
 					   data-type="<?php echo $type ?>">

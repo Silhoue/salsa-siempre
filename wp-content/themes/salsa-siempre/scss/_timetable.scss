@@ -5,6 +5,12 @@ $timetable-font-size: 1.2;
 	font-size: 1em * $timetable-font-size;
 	padding: 0 1.5em / $timetable-font-size;
 	margin-bottom: 3em / $timetable-font-size;
+	._filtered & {
+		margin-bottom: 0;
+	}
+	&._hidden {
+		display: none;
+	}
 }
 
 .timetable-day-title {
@@ -21,6 +27,9 @@ $timetable-font-size: 1.2;
 .timetable-studio-title {
 	margin: 0.5em 0;
 	font-weight: normal;
+	._filtered & {
+		display: none;
+	}
 }
 
 .timetable-class {
@@ -31,6 +40,9 @@ $timetable-font-size: 1.2;
 	width: 16.6em / $timetable-font-size;
 	padding: 1.4em / $timetable-font-size 1em;
 	margin: 0 1px 1px 0;
+	&._hidden {
+		display: none;
+	}
 	&:hover, &:focus {
 		color: $yellow;
 	}
