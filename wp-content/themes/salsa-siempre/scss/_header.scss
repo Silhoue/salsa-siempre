@@ -153,6 +153,9 @@ $menu-max-width: 1182px;
 			border-left: 0.4em solid $yellow;
 		}
 	}
+	a[href$="/o-kursach/"] + .sub-menu {
+		display: none;
+	}
 }
 
 .sub-menu li {
