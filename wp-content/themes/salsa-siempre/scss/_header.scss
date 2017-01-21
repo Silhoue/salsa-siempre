@@ -85,7 +85,8 @@ $menu-max-width: 1182px;
 			}
 		}
 		a {
-			padding-left: 0.95em;
+			padding-left: 0.55em;
+			border-left: 0.4em solid transparent;
 			display: block;
 		}
 		&.active, .active & {
@@ -106,7 +107,8 @@ $menu-max-width: 1182px;
 		border-top: 1px solid #fff;
 	}
 	a {
-		padding-left: 0.95em;
+		padding-left: 0.55em;
+		border-left: 0.4em solid transparent;
 		display: block;
 	}
 	a[href="#"] {
@@ -125,16 +127,17 @@ $menu-max-width: 1182px;
 }
 
 .sub-menu .sub-menu {
+	font-size: 0.85em;
+	text-align: left;
+	top: -1px;
 	left: 100%;
 	right: inherit;
 	border-left: 1px solid #fff;
-	text-align: left;
-	top: -1px;
 }
 
 @media screen and (min-width: $menu-max-width+1) {
 	.menu > li {
-		& > a:hover,
+		&:hover > a,
 		& > a:focus,
 		&.current_page_item > a,
 		&.current_page_parent > a {
@@ -146,22 +149,20 @@ $menu-max-width: 1182px;
 
 @media screen and (max-width: $menu-max-width) {
 	.menu > li {
-		& > a:hover,
+		&:hover > a,
 		&.current_page_item > a,
 		&.current_page_parent > a {
-			padding-left: 0.55em;
-			border-left: 0.4em solid $yellow;
+			border-color: $yellow;
 		}
 	}
-	a[href$="/o-kursach/"] + .sub-menu {
+	a[href$="/o-kursach/"] + ul{
 		display: none;
 	}
 }
 
 .sub-menu li {
-	& > a:hover,
+	&:hover > a,
 	&.current_page_item > a {
-		padding-left: 0.55em;
-		border-left: 0.4em solid $yellow;
+		border-color: $yellow;
 	}
 }
