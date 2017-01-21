@@ -60,7 +60,7 @@ $menu-max-width: 1182px;
 	& li {
 		display: inline-block;
 		position: relative;
-		&:hover ul {
+		&:hover>ul {
 			visibility: visible;
 		}
 	}
@@ -77,14 +77,14 @@ $menu-max-width: 1182px;
 		position: absolute;
 		top: 2.5em;
 		right: 1.5em;
-		& li {
+		li {
 			display: block;
 			border-top: 1px solid #fff;
 			&:hover ul {
 				visibility: inherit;
 			}
 		}
-		& a {
+		a {
 			padding-left: 0.95em;
 			display: block;
 		}
@@ -100,18 +100,36 @@ $menu-max-width: 1182px;
 	position: absolute;
 	background-color: $light-blue;
 	right: 0;
-	& li {
+	li {
 		display: block;
 		white-space: nowrap;
 		border-top: 1px solid #fff;
 	}
-	& a {
+	a {
 		padding-left: 0.95em;
 		display: block;
+	}
+	a[href="#"] {
+		cursor: default;
+		&:after {
+			content: " ";
+			margin-left: 10px;
+			display: inline-block;
+			border: 7px solid transparent;
+			border-left-color: #fff;
+		}
 	}
 	@media screen and (max-width: $menu-max-width) {
 		position: static;
 	}
+}
+
+.sub-menu .sub-menu {
+	left: 100%;
+	right: inherit;
+	border-left: 1px solid #fff;
+	text-align: left;
+	top: -1px;
 }
 
 @media screen and (min-width: $menu-max-width+1) {
