@@ -32,7 +32,7 @@
 
 	if ( $classes->have_posts() ) { ?>
 		<section class="teacher-classes">
-			<h2 class="page-title">Kursy tego stylu</h2>
+			<h2 class="page-title">Kliknij na wybrany kurs i zapisz się!</h2>
 			<?php while ($classes->have_posts()) { $classes->the_post();
 				get_template_part("classes-item");
 			} ?>
