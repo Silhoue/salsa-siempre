@@ -10,10 +10,8 @@ get_header(); ?>
 	$days_of_week = array('poniedziałki', 'wtorki', 'środy', 'czwartki', 'piątki', 'soboty', 'niedziele');
 	$studios = array('Sala&nbsp1', 'Sala&nbsp2', 'Sala&nbsp3');
 
-	if (get_the_post_thumbnail()) { ?>
-		<div class="post-image-wrapper">
-		<?php the_post_thumbnail("large", array("class" => "post-image", "alt" => "")); ?>
-		</div><?php
+	if (get_the_post_thumbnail()) {
+		get_template_part("post-image");
 	}
 	?><article class="post <?php if (get_field("is_new")) { echo "class-new"; } ?>">
 		<header class="post-header">

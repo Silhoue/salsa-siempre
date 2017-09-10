@@ -4,10 +4,8 @@
  */
 ?>
 <div>
-	<?php if (get_the_post_thumbnail()) { ?>
-		<div class="post-image-wrapper">
-		<?php the_post_thumbnail("large", array("class" => "post-image", "alt" => "")); ?>
-		</div><?php
+	<?php if (get_the_post_thumbnail()) {
+		get_template_part("post-image");
 	}
 	?><article class="post">
 		<header class="post-header">
