@@ -8,7 +8,7 @@ get_header(); ?>
 <main role="main">
 <?php while (have_posts()) { the_post();
 	$days_of_week = array('poniedziałki', 'wtorki', 'środy', 'czwartki', 'piątki', 'soboty', 'niedziele');
-	$studios = array('Sala&nbsp1', 'Sala&nbsp2', 'Sala&nbsp3');
+	$studios = array('Sala&nbsp1', 'Sala&nbsp2', 'Sala&nbsp3', 'Sala&nbsp4');
 
 	if (get_the_post_thumbnail()) {
 		get_template_part("post-image");

@@ -77,7 +77,7 @@
 
 		<?php the_post();
 		$days_of_week = array('Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela');
-		$studios = array('Sala 1', 'Sala 2', 'Sala 3');
+		$studios = array('Sala 1', 'Sala 2', 'Sala 3', 'Sala 4');
 		for ($day_of_week = 0; $day_of_week < 7; $day_of_week++) { $studio = -1; ?>
 			<section class="timetable-day">
 				<h2 class="timetable-day-title">
