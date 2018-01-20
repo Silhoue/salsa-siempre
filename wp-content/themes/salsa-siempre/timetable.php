@@ -47,30 +47,48 @@
 				<input type="radio" name="filter" id="filter-0" checked/>
 				<label class="timetable-filters-item" for="filter-0">Wszystkie kursy</label>
 				<?php
-				$types_qry = 'SELECT T.post_title AS title, COUNT(C.id) AS count
-					FROM wp_posts T
+				$types_qry = 'SELECT
+						Type.title,
+						Target.post_title AS target,
+						COUNT(Class.id) AS class_count
+					FROM (
+						SELECT Post.id AS id, Post.post_title AS title, Meta.meta_value AS target_id
+						FROM wp_posts Post
+						INNER JOIN wp_postmeta Meta
+						ON Post.id = Meta.post_id
+							AND Post.post_type="type"
+							AND Post.post_status="publish"
+							AND Meta.meta_key="target"
+					) Type
+					LEFT JOIN wp_posts Target
+					ON Target.id = Type.target_id
+						AND Target.post_type="target"
+						AND Target.post_status="publish"
 					LEFT JOIN (
-						SELECT P.id AS id, M.meta_value AS type_id
-						FROM wp_posts P
-						INNER JOIN wp_postmeta M
-						ON P.id = M.post_id
-							AND P.post_type="class"
-							AND P.post_status="publish"
-							AND M.meta_key="type"
-					) C
-					ON T.id = C.type_id
-					WHERE T.post_type="type"
-						AND T.post_status="publish"
-					GROUP BY T.post_title
-					ORDER BY COUNT(C.id) DESC';
+						SELECT Post.id AS id, Meta.meta_value AS type_id
+						FROM wp_posts Post
+						INNER JOIN wp_postmeta Meta
+						ON Post.id = Meta.post_id
+							AND Post.post_type="class"
+							AND Post.post_status="publish"
+							AND Meta.meta_key="type"
+					) Class
+					ON Type.id = Class.type_id
+					GROUP BY Type.title
+					ORDER BY Target.menu_order, class_count DESC';
 				$types = $wpdb->get_results( $types_qry );
 				?>
 				<?php
 				$i = 0;
+				$target = null;
 				foreach( $types as $type ) {
-					$i+=1; ?>
+					$i+=1;
+					if ($type->target != $target) {
+						$target = $type->target ?>
+						<h3 class="timetable-filters-title"><?php echo $type->target ?></h3>
+					<?php } ?>
 					<input type="radio" name="filter" id="<?php echo "filter-".$i ?>" data-type="<?php echo $type->title; ?>"/>
-					<label class="timetable-filters-item" for="<?php echo "filter-".$i ?>"><?php echo $type->title." (".$type->count.")"; ?></label>
+					<label class="timetable-filters-item" for="<?php echo "filter-".$i ?>"><?php echo $type->title." (".$type->class_count.")"; ?></label>
 				<?php } ?>
 			</section>
 		</div>
@@ -91,9 +109,7 @@
 					$start_date = substr(get_field('start_date'), 0, 5);
 					if (get_field('studio') != $studio) {
 						$studio = get_field('studio');
-						?><h3 class="timetable-studio-title">
-							<?php echo $studios[$studio]; ?>
-						</h3><?php
+						?><h3 class="timetable-studio-title"><?php echo $studios[$studio]; ?></h3><?php
 					}
 					?><a class="timetable-class" href="<?php esc_url(the_permalink()); ?>"
 					   style="background-color:<?php echo get_field('level')->color ?>"

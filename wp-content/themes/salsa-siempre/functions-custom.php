@@ -213,6 +213,31 @@ function register_custom_post_types() {
 	register_post_type( 'level', $args );
 
 	$labels = array(
+		'name'                => _x( 'Kategorie kursów', 'Post Type General Name', 'text_domain' ),
+		'singular_name'       => _x( 'Kategoria kursu', 'Post Type Singular Name', 'text_domain' ),
+		'menu_name'           => __( 'Kategorie kursów', 'text_domain' ),
+		'all_items'           => __( 'Wszystkie kategorie', 'text_domain' ),
+		'view_item'           => __( 'Zobacz', 'text_domain' ),
+		'add_new_item'        => __( 'Dodaj nową kategorię', 'text_domain' ),
+		'add_new'             => __( 'Dodaj nową', 'text_domain' ),
+		'edit_item'           => __( 'Edytuj kategorię', 'text_domain' ),
+		'search_items'        => __( 'Szukaj kategorii', 'text_domain' ),
+		'not_found'           => __( 'Nie znaleziono żadnych kategorii.', 'text_domain' ),
+		'not_found_in_trash'  => __( 'Nie znaleziono żadnych kategorii w koszu.', 'text_domain' )
+	);
+	$args = array(
+		'labels'              => $labels,
+		'rewrite'			  => array( 'slug' => 'kategorie-kursów' ),
+		'supports'            => array( 'title' ),
+		'public'              => true,
+		'show_in_menu'        => true,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 9,
+		'menu_icon'           => 'dashicons-screenoptions'
+	);
+	register_post_type( 'target', $args );
+
+	$labels = array(
 		'name'                => _x( 'Karnety', 'Post Type General Name', 'text_domain' ),
 		'singular_name'       => _x( 'Karnet', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'           => __( 'Karnety', 'text_domain' ),
@@ -232,7 +257,7 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 9,
+		'menu_position'       => 10,
 		'menu_icon'           => 'dashicons-images-alt'
 	);
 	register_post_type( 'package', $args );
@@ -359,13 +384,58 @@ function register_custom_post_types() {
 		'public'              => true,
 		'show_in_menu'        => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 16,
+		'menu_position'       => 15,
 		'menu_icon'           => 'dashicons-media-text'
 	);
 	register_post_type( 'footer-item', $args );
 }
 
 if( function_exists('register_field_group') ):
+
+	register_field_group(array (
+		'key' => 'group_5883a716c94df',
+		'title' => 'Type',
+		'fields' => array (
+			array (
+				'key' => 'field_5883a7468454c',
+				'label' => 'Kategoria',
+				'name' => 'target',
+				'prefix' => '',
+				'type' => 'post_object',
+				'instructions' => '',
+				'required' => 1,
+				'conditional_logic' => 0,
+				'wrapper' => array (
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'post_type' => array (
+					0 => 'target',
+				),
+				'taxonomy' => '',
+				'allow_null' => 1,
+				'multiple' => 0,
+				'return_format' => 'object',
+				'ui' => 1,
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'type',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'acf_after_title',
+		'style' => 'seamless',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+	));
 
 	register_field_group(array (
 		'key' => 'group_5591b34e9220e',
@@ -696,7 +766,7 @@ if( function_exists('register_field_group') ):
 					0 => 'Sala 1',
 					1 => 'Sala 2',
 					2 => 'Sala 3',
-					3 => 'Sala 4'
+					3 => 'Sala 4',
 				),
 				'default_value' => array (
 				),
